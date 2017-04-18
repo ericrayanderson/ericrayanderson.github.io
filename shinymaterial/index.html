@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>shinymaterial</title>
+    <link rel="icon" href="img/favicomatic/favicon-16x16.png" type="image/x-icon" />
+
+    <link rel="stylesheet" href="highlight_r/styles/tomorrow-night-eighties.css">
+    <style>
+        .my-code {
+            font-family: monospace;
+            color: blue;
+            display: inline;
+        }
+        
+        .brand-logo {
+            font-family: monospace;
+        }
+
+    </style>
+</head>
+
+<body class="grey lighten-4">
+    <nav>
+        <div class="nav-wrapper">
+            <div href="javascript:void(0)" class="brand-logo">&nbsp;shinymaterial</div>
+            <div href="javascript:void(0)" class="brand-logo right">
+                <a href="https://github.com/ericrayanderson/shinymaterial" target="_blank">
+                    <img style=' color: white' src='img/GitHub-Mark-Light-32px.png'></img>&nbsp;
+                </a>
+            </div>
+        </div>
+    </nav>
+    <ul class="tabs tabs-fixed-width">
+        <li class="tab">
+            <a href="#about">About</a>
+        </li>
+        <li class="tab">
+            <a href="#usage">Usage</a>
+        </li>
+        <li class="tab">
+            <a href="#material_inputs">Material Inputs</a>
+        </li>
+        <li class="tab">
+            <a href="#showcase">Showcase</a>
+        </li>
+        <li class="tab">
+            <a href="#releases">Releases</a>
+        </li>
+    </ul>
+    <div class="col s12" id="about">
+
+        <div class="parallax-container" style="height:350px">
+            <div class="parallax"><img src="img/bricks.JPG"></div>
+        </div>
+
+        <div class="container">
+            <br/>
+            <h5>
+                <div class='my-code'>shinymaterial</div> is an R package that implements Google's Material design in <a href='https://shiny.rstudio.com/' target='_blank'>Shiny</a> applications via the <a href='http://materializecss.com/' target='_blank'>Materialize</a> library</h5>
+            <br/>
+            <br/>
+            <div class="center-align">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Material_Design.svg/360px-Material_Design.svg.png" />
+            </div>
+        </div>
+    </div>
+    <div class="col s12" id="usage">
+        <div class="container">
+            <h1>Getting Started</h1>
+            <h5>After installing shinymaterial
+                <div class='my-code'>install.packages(shinymaterial)</div> use with the function
+                <div class='my-code'>material_page(...)</div> to build the UI</h5>
+            <h1>Starter Templates</h1>
+            <h5>All starter templates are single file shiny apps (ui and server)</h5>
+            <h5>
+                <div class='my-code'>shinymaterial</div> is only used in ui.R (not server.R)</h5>
+            <h2>Basic</h2>
+            <div class='z-depth-3'>
+                <pre><code class='r'>library(shiny)
+library(shinymaterial)
+
+# Wrap shinymaterial apps in material_page
+ui <- material_page(
+  title = "Basic Page",
+  tags$h1("Page Content")
+)
+
+server <- function(input, output) {
+  
+}
+shinyApp(ui = ui, server = server)</code></pre>
+            </div>
+            <h2>Basic + Side-Nav</h2>
+            <div class='z-depth-3'>
+                <pre><code class='r'>library(shiny)
+library(shinymaterial)
+
+# Wrap shinymaterial apps in material_page
+ui <- material_page(
+  title = "Basic Page + Side-Nav",
+  # Place side-nav in the beginning of the UI
+  material_side_nav(
+    fixed = FALSE,
+    tags$h3("Side-Nav Content")
+  ),
+  tags$h1("Page Content")
+)
+
+server <- function(input, output) {
+  
+}
+shinyApp(ui = ui, server = server)</code></pre>
+            </div>
+            <h2>Basic + Side-Nav + Tabs</h2>
+            <div class='z-depth-3'>
+                <pre><code class='r'>library(shiny)
+library(shinymaterial)
+
+# Wrap shinymaterial apps in material_page
+ui <- material_page(
+  title = "Basic Page + Side-Nav + Tabs",
+  # Place side-nav in the beginning of the UI
+  material_side_nav(
+    fixed = FALSE,
+    tags$h3("Side-Nav Content")
+  ),
+  # Define tabs
+  material_tabs(
+    tabs = c(
+      "First Tab" = "first_tab",
+      "Second Tab" = "second_tab"
+    )
+  ),
+  # Define tab content
+  material_tab_content(
+    tab_id = "first_tab",
+    tags$h1("First Tab Content")
+  ),
+  material_tab_content(
+    tab_id = "second_tab",
+    tags$h1("Second Tab Content")
+  )
+)
+
+server <- function(input, output) {
+  
+}
+shinyApp(ui = ui, server = server)</code></pre>
+            </div>
+            <h2>Basic + Parallax</h2>
+            <div class='z-depth-3'>
+                <pre><code class='r'>library(shiny)
+library(shinymaterial)
+
+# Wrap shinymaterial apps in material_page
+ui <- material_page(
+  title = "Basic Page + Parallax",
+  # Typically the image will be placed in a folder labeled 'www' 
+  # at the same level as the application (server.R & ui.R)
+  material_parallax(
+    image_source =
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Freudenberg_sg_Switzerland.jpg/1920px-Freudenberg_sg_Switzerland.jpg"
+  ),
+  tags$h1("Page Content")
+)
+
+server <- function(input, output) {
+  
+}
+shinyApp(ui = ui, server = server)</code></pre>
+            </div>
+        </div>
+    </div>
+    <div class="col s12" id="material_inputs">
+        <div>
+            <div class="row">
+                <div class="col s0 offset-s0"></div>
+                <div class="col s5 offset-s0">
+                    <div style='font-size:18px;'><br>All inputs are accessed via the function
+                        <div class='my-code' style='display:inline'>material_input</div>
+                        <br><br>The following parameters are required:
+                        <ul>
+                            <div class='my-code'>
+                                <li>type</li>
+                                <li>input_id</li>
+                                <li>label</li>
+                            </div>
+                        </ul><i>*Some inputs have additional parameters</i><br><br>Use the
+                        <p class='my-code' style='display:inline'>type</p> parameter to utilize a particular input<br><br>See
+                        <p class='my-code' style='display:inline'>?material_input</p> for a list of all available types, along with their required parameters</div>
+                    <br/>
+                    <div class='z-depth-3'>
+                        <pre><code class='r'>material_input(
+  type = "button",
+  input_id = "example_button",
+  label = "Button",
+  icon = "no_icon"
+)</code></pre>
+                    </div>
+                </div>
+                <div class="col s2 offset-s1">
+                    <br/>
+                    <button class="waves-effect waves-light btn" id="example_button" value="0">Button</button>
+                    <br/>
+                    <br/>
+                    <form action="#">
+                        <p>
+                            <input type="checkbox" id="example_checkbox" />
+                            <label for="example_checkbox">Checkbox</label>
+                        </p>
+                    </form>
+                    <br/>
+                    <div class="input-field">
+                        <select id=example_dropdown class='shiny-material-dropdown'>
+                <option selected>&nbsp;Chicken</option>
+                <option>&nbsp;Steak</option>
+                <option>&nbsp;Fish</option>
+                </select>
+                        <label>Dropdown</label>
+                    </div>
+                    <br/>
+                    <div class="input-field">
+                        <input id="example_number_box" type="number" value="2" min="1" max="10" />
+                        <label for="example_number_box">Number Box</label>
+                    </div>
+                    <br/>
+                    <div class="input-field">
+                        <input id="example_password_box" type="password" class="validate" />
+                        <label for="example_password_box">Password Box</label>
+                    </div>
+                </div>
+                <div class="col s2 offset-s1">
+                    <br/>
+                    <form action="#" id="example_radio_button" class="shiny-material-radio-button">
+                        <label for="example_radio_button">Radio Button</label>
+                        <p>
+                            <input type="radio" name="example_radio_button" id="c" />
+                            <label for="c">Cake</label>
+                        </p>
+                        <p>
+                            <input type="radio" name="example_radio_button" id="p" />
+                            <label for="p">Pie</label>
+                        </p>
+                        <p>
+                            <input type="radio" name="example_radio_button" id="b" />
+                            <label for="b">Brownie</label>
+                        </p>
+                    </form>
+                    <br/>
+                    <form action="#">
+                        <p class="range-field" id="example_slider">
+                            <label for="example_slider">Slider</label>
+                            <input type="range" min="1" max="10" value="2" />
+                        </p>
+                    </form>
+                    <br/>
+                    <label for="example_switch">Switch</label>
+                    <div class="switch">
+                        <label>
+                  Off
+                  <input type="checkbox" id="example_switch"/>
+                  <span class="lever"></span>
+                  On
+                </label>
+                    </div>
+                    <br/>
+                    <div class="input-field">
+                        <input id="example_text_box" type="text" class="validate" />
+                        <label for="example_text_box">Text Box</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12" id="showcase">
+        <div class="row">
+            <div class="col col s10 m4 offset-m1">
+                <h4>Examples</h4>
+                <div class="collection">
+                    <a href="https://ericrayanderson.shinyapps.io/shinymaterial_basic/" target="_blank" class="collection-item">Basic</a>
+                    <a href="https://ericrayanderson.shinyapps.io/shinymaterial_parallax/" target="_blank" class="collection-item">Parallax</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12" id="releases">
+        <div class="row">
+            <div class="col s12 m6">
+                <h1>CRAN</h1>
+                <ul class="collection">
+                    <li class="collection-item">
+                        <h5>Version</h5>0.1.0</li>
+                    <li class="collection-item">
+                        <h5>Date</h5>04.15.2016</li>
+                    <li class="collection-item">
+                        <h5>New Functions</h5>
+                        <div class='my-code'>
+                            material_card() <br>material_column() <br> material_input() <br> material_page() <br>material_parallax() <br>material_row() <br>material_side_nav() <br>material_tabs() <br>material_tab_content()
+                        </div>
+                    </li>
+                    <li class="collection-item">
+                        <h5>Function Updates</h5>None (initial release)</li>
+                    <li class="collection-item">
+                        <h5>Materialize</h5>v0.98.1</li>
+                </ul>
+            </div>
+            <div class="col s12 m6">
+                <h1>GitHub</h1>
+                <ul class="collection with-header">
+                    <li class="collection-item">
+                        <h5>Install</h5>
+                        <div class='my-code'>devtools::install_github("ericrayanderson/shinymaterial")</div>
+                    </li>
+                    <li class="collection-item">
+                        <h5>Date</h5>Ongoing</li>
+                    <li class="collection-item">
+                        <h5>New Functions</h5>
+                        <div class='my-code'>material_depth() <br>material_modal()</div>
+                    </li>
+                    <li class="collection-item">
+                        <h5>Function Updates</h5>
+                        <div class='my-code'>material_checkbox()</div>
+                        - New parameter
+                        <div class='my-code'>initial_value</div>
+                        <br>
+                        <div class='my-code'>material_switch()</div>
+                        - New parameter
+                        <div class='my-code'>initial_value</div>
+                    </li>
+                    <li class="collection-item">
+                        <h5>Materialize</h5>v0.98.2</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <script src="highlight_r/highlight.pack.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.parallax').parallax();
+            $('.shiny-material-dropdown').material_select();
+            $(".shiny-material-radio-button").find("input:first").trigger("click");
+            hljs.initHighlightingOnLoad();
+        });
+
+    </script>
+</body>
+
+</html>
