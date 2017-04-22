@@ -24,6 +24,11 @@
         .brand-logo {
             font-family: monospace;
         }
+        
+        h2 {
+            border-bottom: 3px solid #000000;
+            margin: 4rem 0 2rem 0;
+        }
 
     </style>
 </head>
@@ -47,7 +52,7 @@
             <a href="#usage">Usage</a>
         </li>
         <li class="tab">
-            <a href="#material_inputs">Material Inputs</a>
+            <a href="#features">Features</a>
         </li>
         <li class="tab">
             <a href="#showcase">Showcase</a>
@@ -84,7 +89,7 @@
             <h5>
                 <div class='my-code'>shinymaterial</div> is only used in ui.R (not server.R)</h5>
             <br>
-            <h2 style='text-decoration: underline'>Basic</h2>
+            <h2>Basic</h2>
             <div class='z-depth-3'>
                 <img src="img/basic.png" width="100%"> </div>
             <div class='z-depth-3'>
@@ -103,7 +108,7 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server)</code></pre>
             </div>
             <br>
-            <h2 style='text-decoration: underline'>Basic + Side-Nav</h2>
+            <h2>Basic + Side-Nav</h2>
             <div class='z-depth-3'>
                 <img src="img/basic_side_nav_in.png" width="100%"> </div>
             <br>
@@ -133,7 +138,7 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server)</code></pre>
             </div>
             <br>
-            <h2 style='text-decoration: underline'>Basic + Side-Nav + Tabs</h2>
+            <h2>Basic + Side-Nav + Tabs</h2>
             <div class='z-depth-3'>
                 <img src="img/basic_side_nav_tabs.png" width="100%"> </div>
             <div class='z-depth-3'>
@@ -172,7 +177,7 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server)</code></pre>
             </div>
             <br>
-            <h2 style='text-decoration: underline'>Basic + Parallax</h2>
+            <h2>Basic + Parallax</h2>
             <div class='z-depth-3'>
                 <img src="img/basic_parallax.png" width="100%"> </div>
             <div class='z-depth-3'>
@@ -198,10 +203,15 @@ shinyApp(ui = ui, server = server)</code></pre>
             </div>
         </div>
     </div>
-    <div class="col s12 m12" id="material_inputs">
+    <div class="col s12 m12" id="features">
+        <div class="row">
+            <div class="col s10 offset-s1">
+                <h2>Inputs</h2>
+            </div>
+        </div>
         <div>
             <div class="row">
-                <div class="col s10 m5">
+                <div class="col s12 m3 offset-m1">
                     <div style='font-size:18px;'><br>All inputs are accessed via the function
                         <div class='my-code' style='display:inline'>material_input</div>
                         <br><br>The following parameters are required:
@@ -224,7 +234,7 @@ shinyApp(ui = ui, server = server)</code></pre>
 )</code></pre>
                     </div>
                 </div>
-                <div class="col s10 m2 offset-m1">
+                <div class="col s12 m2 offset-m1">
                     <br/>
                     <button class="waves-effect waves-light btn" id="example_button" value="0">Button</button>
                     <br/>
@@ -255,7 +265,7 @@ shinyApp(ui = ui, server = server)</code></pre>
                         <label for="example_password_box">Password Box</label>
                     </div>
                 </div>
-                <div class="col s10 m2 offset-m1">
+                <div class="col s12 m2 offset-m1">
                     <br/>
                     <form action="#" id="example_radio_button" class="shiny-material-radio-button">
                         <label for="example_radio_button">Radio Button</label>
@@ -294,10 +304,162 @@ shinyApp(ui = ui, server = server)</code></pre>
                         <input id="example_text_box" type="text" class="validate" />
                         <label for="example_text_box">Text Box</label>
                     </div>
+                    <br>
                     <a class="btn-floating btn-large waves-effect waves-light" style="background-color:#F06C71"><i class="material-icons">add</i></a>
                 </div>
             </div>
 
+        </div>
+        <div class="row">
+            <div class="col s10 offset-s1">
+                <h2>Card</h2>
+            </div>
+            <div class="row">
+                <div class="col s8 offset-s1">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">Miles Per Gallon Density</span>
+                            <img src="img/mpg_density.png" style="width: 100% ; height: 400px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s10 offset-s1">
+                <div class='row'>
+                    <div class='col s12 m6'>
+                        <pre><code class='r'>
+        material_card(
+          title = "Miles Per Gallon Density",
+          plotOutput("mpg_density")
+      )
+        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s10 offset-s1">
+                <h2>Depth</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s3 offset-s1">
+                <div class="z-depth-1">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">Depth 1</span>
+                            <p>Card Content</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s3 offset-s0">
+                <div class="z-depth-3">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">Depth 3</span>
+                            <p>Card Content</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s3 offset-s0">
+                <div class="z-depth-5">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">Depth 5</span>
+                            <p>Card Content</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s10 offset-s1">
+                <div class='row'>
+                    <div class='col s12 m6'>
+                        <pre><code class='r'>
+      material_depth(
+        depth = 3,
+        material_card(
+        title = "Depth 3",
+        tags$p("Card Content")
+        )
+      )
+        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s10 offset-s1">
+                <h2>Modal</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s10 offset-s1">
+                <div class="">
+                    <button data-target="showcase_modal" class="waves-effect waves-light shiny-material-modal-trigger btn" style="">
+              <i class="material-icons left">open_in_browser</i>
+              Modal
+            </button>
+                </div>
+                <div id="showcase_modal" class="modal">
+                    <div class="modal-content">
+                        <h4>Showcase Modal Title</h4>
+                        <p>Modal Content</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="javascript:void(0)" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+                    </div>
+                </div>
+                <br/>
+
+                <div class='row'>
+                    <div class='col s12 m6'>
+                        <pre><code class='r'>
+        material_modal(
+        modal_id = "showcase_modal",
+        button_text = "Modal",
+        button_icon = "open_in_browser",
+        title = "Showcase Modal Title",
+        tags$p("Modal Content")
+      )
+        </code></pre>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s10 offset-s1">
+                <h2>Parallax</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 offset-s0">
+                <div class="parallax-container">
+                    <div class="parallax">
+                        <img src="img/trains.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s10 offset-s1">
+                <div class='row'>
+                    <div class='col s12 m8'>
+                        <pre><code class='r'>
+        material_parallax(
+        # In a folder labeled "www"
+        image_source = "trains.jpg"
+      )
+        </code></pre>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="col s12" id="showcase">
@@ -306,11 +468,10 @@ shinyApp(ui = ui, server = server)</code></pre>
                 <h4>Examples</h4>
                 <div class="collection">
                     <a href="https://ericrayanderson.shinyapps.io/shinymaterial_basic/" target="_blank" class="collection-item">Basic</a>
-                    <a href="https://ericrayanderson.shinyapps.io/shinymaterial_feature_showcase/" target="_blank" class="collection-item">Feature showcase</a>
                     <a href="gmail_clone_mobile/" target="_blank" class="collection-item">Gmail clone</a>
                 </div>
             </div>
-            <div class="col col s10 m4 offset-m2">
+            <div class="col s10 m4 offset-m2">
                 <br><br><br>
                 <a class="z-depth-3 waves-effect waves-light btn-large" href="mailto:eric.ray.anderson@gmail.com?subject=shinymaterial submission">Submit To Showcase</a>
             </div>
@@ -378,6 +539,7 @@ shinyApp(ui = ui, server = server)</code></pre>
     <script>
         $(document).ready(function() {
             $('.parallax').parallax();
+            $('.modal').modal();
             $('.shiny-material-dropdown').material_select();
             $(".shiny-material-radio-button").find("input:first").trigger("click");
             hljs.initHighlightingOnLoad();
