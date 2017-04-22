@@ -11,10 +11,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
-<body>
-    <div class="container">
-        <div class="progress">
-            <div class="indeterminate"></div>
+<body class="grey lighten-4">
+    <div class="card">
+        <div class="card-tabs">
+            <ul class="tabs tabs-fixed-width">
+                <li class="tab">
+                    <a href="#plot_tab" class="">Plot</a>
+                </li>
+                <li class="tab">
+                    <a href="#data_tab" class="active">Data</a>
+                </li>
+                <div class="indicator" style="right: 0px; left: 254px;"></div>
+            </ul>
+        </div>
+        <div class="card-content">
+
+            <div class="col s12 shiny-material-tab-content shiny-material-tab-in-card" id="plot_tab" style="visibility: visible; display: none;">
+                <h1>plot tab content</h1>
+            </div>
+            <div class="col s12 shiny-material-tab-content shiny-material-tab-in-card active" id="data_tab" style="visibility: visible; display: block;">
+                <h1>data tab content</h1>
+            </div>
         </div>
     </div>
     <!--Import jQuery before materialize.js-->
