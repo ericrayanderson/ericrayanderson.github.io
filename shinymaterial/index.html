@@ -21,6 +21,12 @@
             display: inline;
         }
         
+        .my-code-black {
+            font-family: monospace;
+            color: black;
+            display: inline;
+        }
+        
         .brand-logo {
             font-family: monospace;
         }
@@ -74,7 +80,7 @@
             <br/>
             <br/>
             <div class="center-align">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Material_Design.svg/360px-Material_Design.svg.png" />
+                <img height="100%" width="100%" src="https://i.ytimg.com/vi/rrT6v5sOwJg/maxresdefault.jpg" />
             </div>
         </div>
     </div>
@@ -84,11 +90,12 @@
             <h5>After installing shinymaterial
                 <div class='my-code'>install.packages(shinymaterial)</div> use with the function
                 <div class='my-code'>material_page(...)</div> to build the UI</h5>
+            <br>
             <h1>Starter Templates</h1>
             <h5>All starter templates are single file shiny apps (ui and server)</h5>
             <h5>
                 <div class='my-code'>shinymaterial</div> is only used in ui.R (not server.R)</h5>
-            <br>
+
             <h2>Basic</h2>
             <div class='z-depth-3'>
                 <img src="img/basic.png" width="100%"> </div>
@@ -211,29 +218,6 @@ shinyApp(ui = ui, server = server)</code></pre>
         </div>
         <div>
             <div class="row">
-                <div class="col s12 m3 offset-m1">
-                    <div style='font-size:18px;'><br>All inputs are accessed via the function
-                        <div class='my-code' style='display:inline'>material_input</div>
-                        <br><br>The following parameters are required:
-                        <ul>
-                            <div class='my-code'>
-                                <li>type</li>
-                                <li>input_id</li>
-                                <li>label</li>
-                            </div>
-                        </ul><i>*Some inputs have additional parameters</i><br><br>Use the
-                        <p class='my-code' style='display:inline'>type</p> parameter to utilize a particular input<br><br>See
-                        <p class='my-code' style='display:inline'>?material_input</p> for a list of all available types, along with their required parameters</div>
-                    <br/>
-                    <div class='z-depth-3'>
-                        <pre><code class='r'>material_input(
-  type = "button",
-  input_id = "example_button",
-  label = "Button",
-  icon = "no_icon"
-)</code></pre>
-                    </div>
-                </div>
                 <div class="col s12 m2 offset-m1">
                     <br/>
                     <button class="waves-effect waves-light btn" id="example_button" value="0">Button</button>
@@ -248,8 +232,8 @@ shinyApp(ui = ui, server = server)</code></pre>
                     <br/>
                     <div class="input-field">
                         <select id=example_dropdown class='shiny-material-dropdown'>
-                <option selected>&nbsp;Chicken</option>
-                <option>&nbsp;Steak</option>
+                <option>&nbsp;Chicken</option>
+                <option selected>&nbsp;Steak</option>
                 <option>&nbsp;Fish</option>
                 </select>
                         <label>Dropdown</label>
@@ -305,37 +289,140 @@ shinyApp(ui = ui, server = server)</code></pre>
                         <label for="example_text_box">Text Box</label>
                     </div>
                     <br>
-                    <a class="btn-floating btn-large waves-effect waves-light" style="background-color:#F06C71"><i class="material-icons">add</i></a>
+                    <!--
+                    <a class="btn-floating btn-large waves-effect waves-light" style="background-color:#F06C71"><i class="material-icons">add</i></a> -->
+                </div>
+                <div class="col s12 m4 offset-m1">
+                    <pre><code class='r'>
+ material_button(
+   input_id = "example_button",
+   label = "BUTTON"
+ )
+        </code></pre>
+                    <pre><code class='r'>
+ material_dropdown(
+   input_id = "example_dropdown",
+   label = "Dropdown",
+   choices = c(
+     "Chicken" = "c",
+     "Steak" = "s",
+     "Fish" = "f"
+   ),
+   selected = "s"
+ )
+        </code></pre>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m4 offset-m1">
+                    <h4>Input colors</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m7 offset-m1">
+                    <div class="row">
+                        <div class="col s12 m2">
+                            <button class="waves-effect waves-light btn red" id="example_button" value="0">red</button>
+                        </div>
+
+                        <div class="col s12 m2">
+                            <button class="waves-effect waves-light btn pink" id="example_button" value="0">pink</button>
+                        </div>
+                        <div class="col s12 m2">
+                            <button class="waves-effect waves-light btn purple" id="example_button" value="0">purple</button>
+                        </div>
+                        <div class="col s12 m3">
+                            <button class="waves-effect waves-light btn deep-purple" id="example_button" value="0">deep_purple</button>
+                        </div>
+                        <div class="col s12 m2">
+                            <button class="waves-effect waves-light btn indigo" id="example_button" value="0">indigo</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m3">
+                            <button class="waves-effect waves-light btn light-blue" id="example_button" value="0">light_blue</button>
+                        </div>
+
+                        <div class="col s12 m2">
+                            <button class="waves-effect waves-light btn cyan" id="example_button" value="0">cyan</button>
+                        </div>
+                        <div class="col s12 m2">
+                            <button class="waves-effect waves-light btn teal" id="example_button" value="0">teal</button>
+                        </div>
+                        <div class="col s12 m2">
+                            <button class="waves-effect waves-light btn green" id="example_button" value="0">green</button>
+                        </div>
+                        <div class="col s12 m3">
+                            <button class="waves-effect waves-light btn light-green" id="example_button" value="0">light_green</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m2">
+                            <button class="waves-effect waves-light btn lime" id="example_button" value="0">lime</button>
+                        </div>
+
+                        <div class="col s12 m2">
+                            <button class="waves-effect waves-light btn yellow" id="example_button" value="0">yellow</button>
+                        </div>
+                        <div class="col s12 m2">
+                            <button class="waves-effect waves-light btn amber" id="example_button" value="0">amber</button>
+                        </div>
+                        <div class="col s12 m2">
+                            <button class="waves-effect waves-light btn orange" id="example_button" value="0">orange</button>
+                        </div>
+                        <div class="col s12 m3">
+                            <button class="waves-effect waves-light btn deep-orange" id="example_button" value="0">deep_orange</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m2">
+                            <button class="waves-effect waves-light btn brown" id="example_button" value="0">brown</button>
+                        </div>
+
+                        <div class="col s12 m2">
+                            <button class="waves-effect waves-light btn grey" id="example_button" value="0">grey</button>
+                        </div>
+                        <div class="col s12 m3">
+                            <button class="waves-effect waves-light btn blue-grey" id="example_button" value="0">blue_grey</button>
+                        </div>
+                        <div class="col s12 m2">
+                            <button class="waves-effect waves-light btn black" id="example_button" value="0">black</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m3">
+                    <pre><code class='r'>
+ material_button(
+   input_id = "example_button",
+   label = "DEEP_ORANGE",
+   color = "deep-orange"
+ )
+        </code></pre>
                 </div>
             </div>
 
         </div>
         <div class="row">
             <div class="col s10 offset-s1">
-                <h2>Card</h2>
+                <h2>Cards</h2>
             </div>
             <div class="row">
-                <div class="col s8 offset-s1">
+                <div class="col s12 m6 offset-m1">
                     <div class="card">
                         <div class="card-content">
                             <span class="card-title">Miles Per Gallon Density</span>
-                            <img src="img/mpg_density.png">
+                            <img height="100%" width="100%" src="img/mpg_density.png">
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s10 offset-s1">
-                <div class='row'>
-                    <div class='col s12 m6'>
-                        <pre><code class='r'>
-        material_card(
-          title = "Miles Per Gallon Density",
-          plotOutput("mpg_density")
-      )
+
+                <div class="col s12 m4">
+                    <pre><code class='r'>
+ material_card(
+   title = "Miles Per Gallon Density",
+   plotOutput("mpg_density")
+ )
         </code></pre>
-                    </div>
                 </div>
             </div>
         </div>
@@ -345,61 +432,78 @@ shinyApp(ui = ui, server = server)</code></pre>
             </div>
         </div>
         <div class="row">
-            <div class="col s3 offset-s1">
-                <div class="z-depth-1">
-                    <div class="card">
-                        <div class="card-content">
-                            <span class="card-title">Depth 1</span>
-                            <p>Card Content</p>
-                        </div>
-                    </div>
-                </div>
+
+            <div class="col s12 m2 offset-m1">
+                <button class="waves-effect waves-light btn z-depth-0" id="example_button" value="0">BUTTON</button>
             </div>
-            <div class="col s3 offset-s0">
-                <div class="z-depth-3">
-                    <div class="card">
-                        <div class="card-content">
-                            <span class="card-title">Depth 3</span>
-                            <p>Card Content</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="col s12 m2">
+                <button class="waves-effect waves-light btn z-depth-2" id="example_button" value="0">BUTTON</button>
             </div>
-            <div class="col s3 offset-s0">
-                <div class="z-depth-5">
-                    <div class="card">
-                        <div class="card-content">
-                            <span class="card-title">Depth 5</span>
-                            <p>Card Content</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="col s12 m2">
+                <button class="waves-effect waves-light btn z-depth-5" id="example_button" value="0">BUTTON</button>
             </div>
-        </div>
-        <div class="row">
-            <div class="col s10 offset-s1">
-                <div class='row'>
-                    <div class='col s12 m6'>
-                        <pre><code class='r'>
-      material_depth(
-        depth = 3,
-        material_card(
-        title = "Depth 3",
-        tags$p("Card Content")
-        )
-      )
+
+            <div class="col s12 m3">
+                <pre><code class='r'>
+ material_button(
+   input_id = "example_button",
+   label = "BUTTON",
+   depth = 5
+ )
         </code></pre>
+            </div>
+        </div>
+
+
+
+
+        <div class="row">
+
+            <div class="col s12 m3 offset-m1">
+                <div class="card z-depth-0">
+                    <div class="card-content">
+                        <span class="card-title">Card</span>
+                        <img height="100%" width="100%" src="img/mpg_density.png">
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m3">
+                <div class="card z-depth-2">
+                    <div class="card-content">
+                        <span class="card-title">Card</span>
+                        <img height="100%" width="100%" src="img/mpg_density.png">
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m3">
+                <div class="card z-depth-5">
+                    <div class="card-content">
+                        <span class="card-title">Card</span>
+                        <img height="100%" width="100%" src="img/mpg_density.png">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col s10 offset-s1">
-                <h2>Modal</h2>
+        <br>
+        <br>
+        <div class="row" style='display:none'>
+            <div class="col s12 m3 offset-m7">
+                <pre><code class='r'>
+ material_card(
+   title = "Card",
+   depth = 5,
+   plotOutput("mpg_density")
+  )
+        </code></pre>
             </div>
         </div>
         <div class="row">
             <div class="col s10 offset-s1">
+                <h2>Modals</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m2 offset-m2">
                 <div class="">
                     <button data-target="showcase_modal" class="waves-effect waves-light shiny-material-modal-trigger btn" style="">
               <i class="material-icons left">open_in_browser</i>
@@ -415,23 +519,21 @@ shinyApp(ui = ui, server = server)</code></pre>
                         <a href="javascript:void(0)" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
                     </div>
                 </div>
-                <br/>
-
-                <div class='row'>
-                    <div class='col s12 m6'>
-                        <pre><code class='r'>
-        material_modal(
-        modal_id = "showcase_modal",
-        button_text = "Modal",
-        button_icon = "open_in_browser",
-        title = "Showcase Modal Title",
-        tags$p("Modal Content")
-      )
-        </code></pre>
-                    </div>
-                </div>
 
             </div>
+            <div class='col s12 m4 offset-m1'>
+                <pre><code class='r'>
+ material_modal(
+   modal_id = "showcase_modal",
+   button_text = "Modal",
+   button_icon = "open_in_browser",
+   title = "Showcase Modal Title",
+   tags$p("Modal Content")
+ )
+        </code></pre>
+            </div>
+
+
         </div>
         <div class="row">
             <div class="col s10 offset-s1">
@@ -448,14 +550,14 @@ shinyApp(ui = ui, server = server)</code></pre>
             </div>
         </div>
         <div class="row">
-            <div class="col s10 offset-s1">
+            <div class="col s10 offset-s3">
                 <div class='row'>
-                    <div class='col s12 m8'>
+                    <div class='col s12 m6'>
                         <pre><code class='r'>
-        material_parallax(
-        # In a folder labeled "www"
-        image_source = "trains.jpg"
-      )
+ material_parallax(
+   # Image in a folder labeled "www"
+   image_source = "trains.jpg"
+ )
         </code></pre>
                     </div>
                 </div>
@@ -481,6 +583,45 @@ shinyApp(ui = ui, server = server)</code></pre>
         <div class="row">
             <div class="col s12 m6">
                 <h1>CRAN</h1>
+
+
+                <ul class="collection">
+                    <li class="collection-item">
+                        <h5>Version</h5>0.2.1</li>
+                    <li class="collection-item">
+                        <h5>Date</h5>04.28.2016</li>
+                    <li class="collection-item">
+                        <h5>New Functions</h5>
+                        <div class='my-code'>
+                            material_button() <br> material_checkbox() <br> material_depth() <br> material_dropdown() <br> material_floating_button() <br> material_modal() <br> material_number_box() <br> material_password_box() <br> material_radio_button() <br> material_slider() <br> material_switch() <br> material_text_box()
+                        </div>
+                    </li>
+                    <li class="collection-item">
+                        <h5>Function Updates</h5>
+                        <i>New parameters</i><br>
+                        <div class='my-code'>material_card()</div>
+                        <div class='my-code-black'>
+                            depth
+                        </div>
+                        <br>
+                        <div class='my-code'>material_page()</div>
+                        <div class='my-code-black'>
+                            nav_bar_color, background_color
+                        </div>
+                        <br>
+                        <div class='my-code'>material_side_nav()</div>
+                        <div class='my-code-black'>
+                            image_source, background_color
+                        </div>
+                        <br>
+                        <div class='my-code'>material_tabs()</div>
+                        <div class='my-code-black'>
+                            color
+                        </div>
+                    </li>
+                    <li class="collection-item">
+                        <h5>Materialize</h5>v0.98.2</li>
+                </ul>
                 <ul class="collection">
                     <li class="collection-item">
                         <h5>Version</h5>0.1.0</li>
@@ -493,7 +634,8 @@ shinyApp(ui = ui, server = server)</code></pre>
                         </div>
                     </li>
                     <li class="collection-item">
-                        <h5>Function Updates</h5>None (initial release)</li>
+                        <h5>Function Updates</h5>None
+                    </li>
                     <li class="collection-item">
                         <h5>Materialize</h5>v0.98.1</li>
                 </ul>
@@ -508,22 +650,10 @@ shinyApp(ui = ui, server = server)</code></pre>
                     <li class="collection-item">
                         <h5>Date</h5>Ongoing</li>
                     <li class="collection-item">
-                        <h5>New Functions</h5>
-                        <div class='my-code'>material_depth() <br>material_modal()</div>
+                        <h5>New Functions</h5>None
                     </li>
                     <li class="collection-item">
-                        <h5>Function Updates</h5>
-                        <div class='my-code'>material_checkbox()</div>
-                        - New parameter
-                        <div class='my-code'>initial_value</div>
-                        <br>
-                        <div class='my-code'>material_switch()</div>
-                        - New parameter
-                        <div class='my-code'>initial_value</div>
-                        <br>
-                        <div class='my-code'>material_side_nav()</div>
-                        - New parameter
-                        <div class='my-code'>image_source</div>
+                        <h5>Function Updates</h5>None
                     </li>
                     <li class="collection-item">
                         <h5>Materialize</h5>v0.98.2</li>
