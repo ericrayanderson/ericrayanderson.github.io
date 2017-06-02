@@ -45,7 +45,7 @@
             <div href="javascript:void(0)" class="brand-logo">&nbsp;shinymaterial</div>
             <div href="javascript:void(0)" class="brand-logo right">
                 <a href="https://github.com/ericrayanderson/shinymaterial" target="_blank">
-                    <img style=' color: white' src='img/GitHub-Mark-Light-32px.png'></img>&nbsp;
+                    <img style=' color: white' src='img/GitHub-Mark-Light-32px.png'>&nbsp;
                 </a>
             </div>
         </div>
@@ -85,15 +85,25 @@
         <br>
         <div class='row'>
             <div class='col s10 offset-s1'>
-                <h1 class='my-code' style='font-size:75px;color:black'>Installation</h1>
+                <h1 class='my-code' style='font-size:75px;color:black;font-weight:500'>Installation</h1>
                 <h5>
                     <div class='my-code'>install.packages(shinymaterial)</div>
                 </h5>
                 <br>
-                <br>
-                <h1 class='my-code' style='font-size:75px;color:black'>Templates</h1>
-                <h2 class='myh2'>Basic</h2>
-                <pre><code class='r'>library(shiny)
+
+                <h1 class='my-code' style='font-size:75px;color:black;font-weight:500'>Templates</h1>
+                <div class="collection" style='width:300px'>
+
+                    <a href="#basic" class="collection-item">Basic</a>
+
+                    <a href="#basic_side_nav_tabs" class="collection-item">Basic + Side-Nav + Tabs</a>
+
+                    <a href="#basic_parallax" class="collection-item">Basic + Parallax</a>
+
+                </div>
+                <div id="basic">
+                    <h2 class='myh2'>Basic</h2>
+                    <pre><code class='r'>library(shiny)
 library(shinymaterial)
 
 # Wrap shinymaterial apps in material_page
@@ -106,14 +116,15 @@ server <- function(input, output) {
   
 }
 shinyApp(ui = ui, server = server)</code></pre>
-                <div class='z-depth-3'>
-                    <img src="img/basic.png" width="100%"> </div>
-                <br>
-                <br>
-                <br>
-
-                <h2><span class='myh2'>Basic </span>+ Side-Nav + Tabs</h2>
-                <pre><code class='r'>library(shiny)
+                    <div class='z-depth-3'>
+                        <img src="img/basic.png" width="100%"> </div>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div id="basic_side_nav_tabs">
+                    <h2><span class='myh2'>Basic </span>+ Side-Nav + Tabs</h2>
+                    <pre><code class='r'>library(shiny)
 library(shinymaterial)
 
 # Wrap shinymaterial apps in material_page
@@ -146,23 +157,25 @@ server <- function(input, output) {
   
 }
 shinyApp(ui = ui, server = server)</code></pre>
-                <div class='z-depth-3'>
-                    <img src="img/basic_side_nav_tabs.png" width="100%">
-                </div>
-                <h5>clicking on
-                    <div style='display:inline'><img src="img/menu.png" height="30" width="30"></div>
-                </h5>
-                <div class='z-depth-3'>
-                    <img src="img/basic_side_nav_tabs_out.png" width="100%"> </div>
+                    <div class='z-depth-3'>
+                        <img src="img/basic_side_nav_tabs.png" width="100%">
+                    </div>
+                    <h5>clicking on
+                        <div style='display:inline'><img src="img/menu.png" height="30" width="30"></div>
+                    </h5>
+                    <div class='z-depth-3'>
+                        <img src="img/basic_side_nav_tabs_out.png" width="100%"> </div>
 
-                <br>
-                <br>
-                <br>
-                <h2><span class='myh2'>Basic </span> + Parallax</h2>
-                <div class='z-depth-3'>
-                    <img src="img/basic_parallax.png" width="100%"> </div>
-                <div class='z-depth-3'>
-                    <pre><code class='r'>library(shiny)
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div id="basic_parallax">
+                    <h2><span class='myh2'>Basic </span> + Parallax</h2>
+                    <div class='z-depth-3'>
+                        <img src="img/basic_parallax.png" width="100%"> </div>
+                    <div class='z-depth-3'>
+                        <pre><code class='r'>library(shiny)
 library(shinymaterial)
 
 # Wrap shinymaterial apps in material_page
@@ -181,6 +194,7 @@ server <- function(input, output) {
   
 }
 shinyApp(ui = ui, server = server)</code></pre>
+                    </div>
                 </div>
             </div>
         </div>
@@ -189,7 +203,7 @@ shinyApp(ui = ui, server = server)</code></pre>
         <br>
         <div class="row">
             <div class="col s10 offset-s1">
-                <h2 class='my-code' style='font-size:75px;color:black'>Inputs</h2>
+                <h2 class='my-code' style='font-size:75px;color:black;font-weight:500'>Inputs</h2>
             </div>
         </div>
         <div>
@@ -380,7 +394,7 @@ shinyApp(ui = ui, server = server)</code></pre>
         </div>
         <div class="row">
             <div class="col s10 offset-s1">
-                <h2 class='my-code' style='font-size:75px;color:black'>Cards</h2>
+                <h2 class='my-code' style='font-size:75px;color:black;font-weight:500'>Cards</h2>
             </div>
             <div class="row">
                 <div class="col s12 m6 offset-m1">
@@ -404,7 +418,7 @@ shinyApp(ui = ui, server = server)</code></pre>
         </div>
         <div class="row">
             <div class="col s10 offset-s1">
-                <h2 class='my-code' style='font-size:75px;color:black'>Depth</h2>
+                <h2 class='my-code' style='font-size:75px;color:black;font-weight:500'>Depth</h2>
             </div>
         </div>
         <div class="row">
@@ -475,7 +489,7 @@ shinyApp(ui = ui, server = server)</code></pre>
         </div>
         <div class="row">
             <div class="col s10 offset-s1">
-                <h2 class='my-code' style='font-size:75px;color:black'>Modals</h2>
+                <h2 class='my-code' style='font-size:75px;color:black;font-weight:500;font-weight:600'>Modals</h2>
             </div>
         </div>
         <div class="row">
@@ -513,7 +527,7 @@ shinyApp(ui = ui, server = server)</code></pre>
         </div>
         <div class="row">
             <div class="col s10 offset-s1">
-                <h2 class='my-code' style='font-size:75px;color:black'>Parallax</h2>
+                <h2 class='my-code' style='font-size:75px;color:black;font-weight:500'>Parallax</h2>
             </div>
         </div>
         <div class="row">
@@ -544,7 +558,7 @@ shinyApp(ui = ui, server = server)</code></pre>
         <br>
         <div class="row">
             <div class="col col s10 m4 offset-m1">
-                <h3 class='my-code' style='font-size:75px;color:black'>Examples</h3>
+                <h3 class='my-code' style='font-size:75px;color:black;font-weight:500'>Examples</h3>
                 <br>
                 <br>
                 <div class="collection">
@@ -562,7 +576,7 @@ shinyApp(ui = ui, server = server)</code></pre>
         <div class="row">
             <br>
             <div class="col s12 m6">
-                <h1 class='my-code' style='font-size:75px;color:black'>CRAN</h1>
+                <h1 class='my-code' style='font-size:75px;color:black;font-weight:500'>CRAN</h1>
 
 
                 <ul class="collection">
@@ -622,7 +636,7 @@ shinyApp(ui = ui, server = server)</code></pre>
             </div>
 
             <div class="col s12 m6">
-                <h1 class='my-code' style='font-size:75px;color:black'>GitHub</h1>
+                <h1 class='my-code' style='font-size:75px;color:black;font-weight:500'>GitHub</h1>
                 <ul class="collection with-header">
                     <li class="collection-item">
                         <h5>Install</h5>
