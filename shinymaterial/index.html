@@ -31,9 +31,10 @@
             font-family: monospace;
         }
         
-        h2 {
-            border-bottom: 3px solid #000000;
+        .myh2 {
             margin: 4rem 0 2rem 0;
+            color: #4caf50;
+            font-weight: 700;
         }
 
     </style>
@@ -69,38 +70,28 @@
     </ul>
     <div class="col s12" id="about">
 
-        <div class="parallax-container" style="height:350px">
-            <div class="parallax"><img src="img/bricks.JPG"></div>
-        </div>
-
         <div class="container">
             <br/>
-            <h5>
-                <div class='my-code'>shinymaterial</div> is an R package that implements Google's Material design in <a href='https://shiny.rstudio.com/' target='_blank'>Shiny</a> applications via the <a href='http://materializecss.com/' target='_blank'>Materialize</a> library</h5>
-            <br/>
-            <br/>
-            <div class="center-align">
-                <img height="100%" width="100%" src="https://i.ytimg.com/vi/rrT6v5sOwJg/maxresdefault.jpg" />
-            </div>
+            <h4>
+                <div class='my-code'>shinymaterial</div> is an R package that implements Google's Material design in <a href='https://shiny.rstudio.com/' target='_blank'>Shiny</a> apps
+                <br/>
+                <br/>
+                <div class="center-align">
+                    <img height="100%" width="100%" src="https://i.ytimg.com/vi/rrT6v5sOwJg/maxresdefault.jpg" />
+                </div>
         </div>
     </div>
     <div class="col s12" id="usage">
         <div class="container">
-            <h1>Getting Started</h1>
-            <h5>After installing shinymaterial
-                <div class='my-code'>install.packages(shinymaterial)</div> use with the function
-                <div class='my-code'>material_page(...)</div> to build the UI</h5>
-            <br>
-            <h1>Starter Templates</h1>
-            <h5>All starter templates are single file shiny apps (ui and server)</h5>
+            <h1 style='font-size:75px'>Installation</h1>
             <h5>
-                <div class='my-code'>shinymaterial</div> is only used in ui.R (not server.R)</h5>
-
-            <h2>Basic</h2>
-            <div class='z-depth-3'>
-                <img src="img/basic.png" width="100%"> </div>
-            <div class='z-depth-3'>
-                <pre><code class='r'>library(shiny)
+                <div class='my-code'>install.packages(shinymaterial)</div>
+            </h5>
+            <br>
+            <br>
+            <h1 style='font-size:75px'>Templates</h1>
+            <h2 class='myh2'>Basic</h2>
+            <pre><code class='r'>library(shiny)
 library(shinymaterial)
 
 # Wrap shinymaterial apps in material_page
@@ -113,43 +104,14 @@ server <- function(input, output) {
   
 }
 shinyApp(ui = ui, server = server)</code></pre>
-            </div>
+            <div class='z-depth-3'>
+                <img src="img/basic.png" width="100%"> </div>
             <br>
-            <h2>Basic + Side-Nav</h2>
-            <div class='z-depth-3'>
-                <img src="img/basic_side_nav_in.png" width="100%"> </div>
             <br>
-            <h5>clicking on
-                <div class='z-depth-0' style='display:inline'><img src="img/menu.png" height="30" width="30"></div>
-            </h5>
-            <div class='z-depth-3'>
-                <img src="img/basic_side_nav_out.png" width="100%"> </div>
-            <div class='z-depth-3'>
-                <pre><code class='r'>library(shiny)
-library(shinymaterial)
+            <br>
 
-# Wrap shinymaterial apps in material_page
-ui <- material_page(
-  title = "Basic Page + Side-Nav",
-  # Place side-nav in the beginning of the UI
-  material_side_nav(
-    fixed = FALSE,
-    tags$h3("Side-Nav Content")
-  ),
-  tags$h1("Page Content")
-)
-
-server <- function(input, output) {
-  
-}
-shinyApp(ui = ui, server = server)</code></pre>
-            </div>
-            <br>
-            <h2>Basic + Side-Nav + Tabs</h2>
-            <div class='z-depth-3'>
-                <img src="img/basic_side_nav_tabs.png" width="100%"> </div>
-            <div class='z-depth-3'>
-                <pre><code class='r'>library(shiny)
+            <h2><span class='myh2'>Basic </span>+ Side-Nav + Tabs</h2>
+            <pre><code class='r'>library(shiny)
 library(shinymaterial)
 
 # Wrap shinymaterial apps in material_page
@@ -182,9 +144,19 @@ server <- function(input, output) {
   
 }
 shinyApp(ui = ui, server = server)</code></pre>
+            <div class='z-depth-3'>
+                <img src="img/basic_side_nav_tabs.png" width="100%">
             </div>
+            <h5>clicking on
+                <div style='display:inline'><img src="img/menu.png" height="30" width="30"></div>
+            </h5>
+            <div class='z-depth-3'>
+                <img src="img/basic_side_nav_tabs_out.png" width="100%"> </div>
+
             <br>
-            <h2>Basic + Parallax</h2>
+            <br>
+            <br>
+            <h2><span class='myh2'>Basic </span> + Parallax</h2>
             <div class='z-depth-3'>
                 <img src="img/basic_parallax.png" width="100%"> </div>
             <div class='z-depth-3'>
@@ -569,7 +541,7 @@ shinyApp(ui = ui, server = server)</code></pre>
             <div class="col col s10 m4 offset-m1">
                 <h4>Examples</h4>
                 <div class="collection">
-                    <a href="https://ericrayanderson.shinyapps.io/shinymaterial_basic/" target="_blank" class="collection-item">Basic</a>
+                    <a href="https://ericrayanderson.shinyapps.io/shinymaterial_basic/" target="_blank" class="collection-item">Example App</a>
                     <a href="gmail_clone_mobile/" target="_blank" class="collection-item">Gmail clone</a>
                 </div>
             </div>
