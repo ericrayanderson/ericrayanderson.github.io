@@ -252,6 +252,10 @@ shinyApp(ui = ui, server = server)</code></pre>
                             <input id="example_password_box" type="password" class="validate" />
                             <label for="example_password_box">Password Box</label>
                         </div>
+
+
+                        <br/>
+                        <input type="date" class="datepicker">
                     </div>
                     <div class="col s12 m2 offset-m1">
                         <br/>
@@ -608,7 +612,7 @@ shinyApp(ui = ui, server = server)</code></pre>
                     <li class="collection-item">
                         <h5>Version</h5>0.3.0</li>
                     <li class="collection-item">
-                        <h5>Date</h5>07.04.2017</li>
+                        <h5>Date</h5>07.05.2017</li>
                     <li class="collection-item">
                         <h5>New Functions</h5>
                         None
@@ -721,6 +725,7 @@ shinyApp(ui = ui, server = server)</code></pre>
             $('.shiny-material-dropdown').material_select();
             $(".shiny-material-radio-button").find("input:first").trigger("click");
             hljs.initHighlightingOnLoad();
+            $('.datepicker').pickadate({});
         });
 
     </script>
