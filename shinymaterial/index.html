@@ -96,6 +96,8 @@
 
                     <a href="#basic" class="collection-item">Basic</a>
 
+                    <a href="#basic_side_nav_with_tabs" class="collection-item">Basic + Side-Nav with Tabs</a>
+
                     <a href="#basic_side_nav_tabs" class="collection-item">Basic + Side-Nav + Tabs</a>
 
                     <a href="#basic_parallax" class="collection-item">Basic + Parallax</a>
@@ -122,6 +124,69 @@ shinyApp(ui = ui, server = server)</code></pre>
                     <br>
                     <br>
                 </div>
+
+
+
+                <div id="basic_side_nav_with_tabs">
+                    <h2><span class='myh2'>Basic </span>+ Side-Nav with Tabs</h2>
+                    <pre><code class='r'>
+library(shiny)
+library(shinymaterial)
+
+# Wrap shinymaterial apps in material_page
+ui <- material_page(
+  title = "Basic Page + Side-Nav with Tabs",
+  # Place side-nav in the beginning of the UI
+  material_side_nav(
+    fixed = TRUE,
+    material_side_nav_tabs(
+      side_nav_tabs = c(
+        "Example Side-Nav Tab 1" = "example_side_nav_tab_1",
+        "Example Side-Nav Tab 2" = "example_side_nav_tab_2"
+      ),
+      icons = c("cast", "insert_chart")
+    )
+  ),
+  # Define side-nav tab content
+  material_side_nav_tab_content(
+    side_nav_tab_id = "example_side_nav_tab_1",
+    tags$h1("First Side-Nav Tab Content")
+  ),
+  material_side_nav_tab_content(
+    side_nav_tab_id = "example_side_nav_tab_2",
+    tags$h1("Second Side-Nav Tab Content")
+  )
+)
+
+
+server <- function(input, output) {
+  
+}
+shinyApp(ui = ui, server = server)
+</code></pre>
+                    <div class='z-depth-3'>
+                        <img src="img/basic_side_nav_tabs.png" width="100%">
+                    </div>
+                    <h5>clicking on
+                        <div style='display:inline'><img src="img/menu.png" height="30" width="30"></div>
+                    </h5>
+                    <div class='z-depth-3'>
+                        <img src="img/basic_side_nav_tabs_out.png" width="100%"> </div>
+
+                    <br>
+                    <br>
+                    <br>
+                </div>
+
+
+
+
+
+
+
+
+
+
                 <div id="basic_side_nav_tabs">
                     <h2><span class='myh2'>Basic </span>+ Side-Nav + Tabs</h2>
                     <pre><code class='r'>library(shiny)
