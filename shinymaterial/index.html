@@ -72,13 +72,13 @@
             <a href="#about">About</a>
         </li>
         <li class="tab">
+            <a href="#showcase">Showcase</a>
+        </li>
+        <li class="tab">
             <a href="#usage">Usage</a>
         </li>
         <li class="tab">
             <a href="#features">Features</a>
-        </li>
-        <li class="tab">
-            <a href="#showcase">Showcase</a>
         </li>
         <li class="tab">
             <a href="#releases">Releases</a>
@@ -685,193 +685,192 @@ shinyApp(ui = ui, server = server)</code></pre>
             <div class="col s5 offset-s1">
                 <div class="card">
                     <div class="card-content">
-                        <span class="card-title teal-text">Dashboard</span>
-                        <a href="https://ericrayanderson.shinyapps.io/shinymaterial_dashboard" target="_blank"><img src="img/shinymaterial_dashboard.png" width="100%"></a>
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="col s5">
-                <div class="card">
-                    <div class="card-content">
-                        <span class="card-title teal-text">Gmail Clone</span>
-                        <a href="https://ericrayanderson.shinyapps.io/shiny_material_showcase/?app=gmail_clone" target="_blank"><img src="img/gmail_clone.png" width="100%"></a>
-                    </div>
-                </div>
-        </div>
-    </div>
-    <div class="row"> -->
-            <div class="col s5">
-                <div class="card">
-                    <div class="card-content">
                         <span class="card-title teal-text">Basic App</span>
                         <a href="https://ericrayanderson.shinyapps.io/shiny_material_showcase/?app=example_app" target="_blank"><img src="img/example_app2.png" width="100%"></a>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="col s12" id="releases">
-        <div class="row">
-            <br>
-            <div class="col s12 m6">
-                <h1 class='my-code' style='font-size:75px;color:black;font-weight:500'>CRAN</h1>
-
-
-
-
-                <ul class="collection">
-                    <li class="collection-item">
-                        <h5>Version</h5>0.4.1</li>
-                    <li class="collection-item">
-                        <h5>Date</h5>10.28.2017</li>
-                    <li class="collection-item">
-                        <h5>New Functions</h5>
-                        <div class='my-code'>
-                            material_side_nav_tabs() <br> material_side_nav_tab_content() <br> material_date_picker()
-                        </div>
-                    </li>
-                    <li class="collection-item">
-                        <h5>Function Updates</h5>
-                        <i>New parameters</i><br>
-                        <div class='my-code'>material_page()</div>
-                        <div class='my-code-black'>
-                            font_color
-                        </div>
-                    </li>
-                    <li class="collection-item">
-                        <h5>Materialize</h5>v0.99.0</li>
-                </ul>
-
-
-
-
-                <ul class="collection">
-                    <li class="collection-item">
-                        <h5>Version</h5>0.3.0</li>
-                    <li class="collection-item">
-                        <h5>Date</h5>07.05.2017</li>
-                    <li class="collection-item">
-                        <h5>New Functions</h5>
-                        None
-                    </li>
-                    <li class="collection-item">
-                        <h5>Function Updates</h5>
-                        Various bug fixes
-                    </li>
-                    <li class="collection-item">
-                        <h5>Materialize</h5>v0.99.0</li>
-                </ul>
-
-
-
-
-
-
-
-
-
-
-                <ul class="collection">
-                    <li class="collection-item">
-                        <h5>Version</h5>0.2.1</li>
-                    <li class="collection-item">
-                        <h5>Date</h5>04.29.2017</li>
-                    <li class="collection-item">
-                        <h5>New Functions</h5>
-                        <div class='my-code'>
-                            material_button() <br> material_checkbox() <br> material_depth() <br> material_dropdown() <br> material_floating_button() <br> material_modal() <br> material_number_box() <br> material_password_box() <br> material_radio_button() <br> material_slider() <br> material_switch() <br> material_text_box()
-                        </div>
-                    </li>
-                    <li class="collection-item">
-                        <h5>Function Updates</h5>
-                        <i>New parameters</i><br>
-                        <div class='my-code'>material_card()</div>
-                        <div class='my-code-black'>
-                            depth
-                        </div>
-                        <br>
-                        <div class='my-code'>material_page()</div>
-                        <div class='my-code-black'>
-                            nav_bar_color, background_color
-                        </div>
-                        <br>
-                        <div class='my-code'>material_side_nav()</div>
-                        <div class='my-code-black'>
-                            image_source, background_color
-                        </div>
-                        <br>
-                        <div class='my-code'>material_tabs()</div>
-                        <div class='my-code-black'>
-                            color
-                        </div>
-                    </li>
-                    <li class="collection-item">
-                        <h5>Materialize</h5>v0.98.2</li>
-                </ul>
-                <ul class="collection">
-                    <li class="collection-item">
-                        <h5>Version</h5>0.1.0</li>
-                    <li class="collection-item">
-                        <h5>Date</h5>04.15.2017</li>
-                    <li class="collection-item">
-                        <h5>New Functions</h5>
-                        <div class='my-code'>
-                            material_card() <br>material_column() <br> material_input() <br> material_page() <br>material_parallax() <br>material_row() <br>material_side_nav() <br>material_tabs() <br>material_tab_content()
-                        </div>
-                    </li>
-                    <li class="collection-item">
-                        <h5>Function Updates</h5>None
-                    </li>
-                    <li class="collection-item">
-                        <h5>Materialize</h5>v0.98.1</li>
-                </ul>
+            <div class="col s5">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title teal-text">Dashboard</span>
+                        <a href="https://ericrayanderson.shinyapps.io/shinymaterial_dashboard" target="_blank"><img src="img/shinymaterial_dashboard.png" width="100%"></a>
+                    </div>
+                </div>
             </div>
-
-            <div class="col s12 m6">
-                <h1 class='my-code' style='font-size:75px;color:black;font-weight:500'>GitHub</h1>
-                <ul class="collection with-header">
-                    <li class="collection-item">
-                        <h5>Install</h5>
-                        <div class='my-code'>devtools::install_github("ericrayanderson/shinymaterial")</div>
-                    </li>
-                    <li class="collection-item">
-                        <h5>Date</h5>Ongoing</li>
-                    <li class="collection-item">
-                        <h5>New Functions</h5>
-                        <div class='my-code'>
-                            material_file_input() <br> material_spinner_hide() <br> material_spinner_show() <br> update_material_dropdown() <br> update_material_number_box() <br> update_material_password_box() <br> update_material_switch() <br> update_material_text_box()
+            <div class="row">
+                <div class="col s5 offset-1">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title teal-text">Parallax</span>
+                            <a href="https://ericrayanderson.shinyapps.io/shinymaterial_parallax" target="_blank"><img src="img/parallaxSS.png" width="100%"></a>
                         </div>
-                    </li>
-                    <li class="collection-item">
-                        <h5>Function Updates</h5>
-                        <div class='my-code'>material_page()</div>
-                        <div class='my-code-black'>
-                            include_fonts
-                        </div>
-                    </li>
-                    <li class="collection-item">
-                        <h5>Materialize</h5>v0.99.0</li>
-                </ul>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
-    <script src="highlight_r/highlight.pack.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.parallax').parallax();
-            $('.modal').modal();
-            $('.shiny-material-dropdown').material_select();
-            $(".shiny-material-radio-button").find("input:first").trigger("click");
-            hljs.initHighlightingOnLoad();
-            $('.datepicker').pickadate({});
-        });
 
-    </script>
+        <div class="col s12" id="releases">
+            <div class="row">
+                <br>
+                <div class="col s12 m6">
+                    <h1 class='my-code' style='font-size:75px;color:black;font-weight:500'>CRAN</h1>
+
+
+
+
+                    <ul class="collection">
+                        <li class="collection-item">
+                            <h5>Version</h5>0.4.1</li>
+                        <li class="collection-item">
+                            <h5>Date</h5>10.28.2017</li>
+                        <li class="collection-item">
+                            <h5>New Functions</h5>
+                            <div class='my-code'>
+                                material_side_nav_tabs() <br> material_side_nav_tab_content() <br> material_date_picker()
+                            </div>
+                        </li>
+                        <li class="collection-item">
+                            <h5>Function Updates</h5>
+                            <i>New parameters</i><br>
+                            <div class='my-code'>material_page()</div>
+                            <div class='my-code-black'>
+                                font_color
+                            </div>
+                        </li>
+                        <li class="collection-item">
+                            <h5>Materialize</h5>v0.99.0</li>
+                    </ul>
+
+
+
+
+                    <ul class="collection">
+                        <li class="collection-item">
+                            <h5>Version</h5>0.3.0</li>
+                        <li class="collection-item">
+                            <h5>Date</h5>07.05.2017</li>
+                        <li class="collection-item">
+                            <h5>New Functions</h5>
+                            None
+                        </li>
+                        <li class="collection-item">
+                            <h5>Function Updates</h5>
+                            Various bug fixes
+                        </li>
+                        <li class="collection-item">
+                            <h5>Materialize</h5>v0.99.0</li>
+                    </ul>
+
+
+
+
+
+
+
+
+
+
+                    <ul class="collection">
+                        <li class="collection-item">
+                            <h5>Version</h5>0.2.1</li>
+                        <li class="collection-item">
+                            <h5>Date</h5>04.29.2017</li>
+                        <li class="collection-item">
+                            <h5>New Functions</h5>
+                            <div class='my-code'>
+                                material_button() <br> material_checkbox() <br> material_depth() <br> material_dropdown() <br> material_floating_button() <br> material_modal() <br> material_number_box() <br> material_password_box() <br> material_radio_button() <br> material_slider() <br> material_switch() <br> material_text_box()
+                            </div>
+                        </li>
+                        <li class="collection-item">
+                            <h5>Function Updates</h5>
+                            <i>New parameters</i><br>
+                            <div class='my-code'>material_card()</div>
+                            <div class='my-code-black'>
+                                depth
+                            </div>
+                            <br>
+                            <div class='my-code'>material_page()</div>
+                            <div class='my-code-black'>
+                                nav_bar_color, background_color
+                            </div>
+                            <br>
+                            <div class='my-code'>material_side_nav()</div>
+                            <div class='my-code-black'>
+                                image_source, background_color
+                            </div>
+                            <br>
+                            <div class='my-code'>material_tabs()</div>
+                            <div class='my-code-black'>
+                                color
+                            </div>
+                        </li>
+                        <li class="collection-item">
+                            <h5>Materialize</h5>v0.98.2</li>
+                    </ul>
+                    <ul class="collection">
+                        <li class="collection-item">
+                            <h5>Version</h5>0.1.0</li>
+                        <li class="collection-item">
+                            <h5>Date</h5>04.15.2017</li>
+                        <li class="collection-item">
+                            <h5>New Functions</h5>
+                            <div class='my-code'>
+                                material_card() <br>material_column() <br> material_input() <br> material_page() <br>material_parallax() <br>material_row() <br>material_side_nav() <br>material_tabs() <br>material_tab_content()
+                            </div>
+                        </li>
+                        <li class="collection-item">
+                            <h5>Function Updates</h5>None
+                        </li>
+                        <li class="collection-item">
+                            <h5>Materialize</h5>v0.98.1</li>
+                    </ul>
+                </div>
+
+                <div class="col s12 m6">
+                    <h1 class='my-code' style='font-size:75px;color:black;font-weight:500'>GitHub</h1>
+                    <ul class="collection with-header">
+                        <li class="collection-item">
+                            <h5>Install</h5>
+                            <div class='my-code'>devtools::install_github("ericrayanderson/shinymaterial")</div>
+                        </li>
+                        <li class="collection-item">
+                            <h5>Date</h5>Ongoing</li>
+                        <li class="collection-item">
+                            <h5>New Functions</h5>
+                            <div class='my-code'>
+                                material_file_input() <br> material_spinner_hide() <br> material_spinner_show() <br> update_material_dropdown() <br> update_material_number_box() <br> update_material_password_box() <br> update_material_switch() <br> update_material_text_box()
+                            </div>
+                        </li>
+                        <li class="collection-item">
+                            <h5>Function Updates</h5>
+                            <div class='my-code'>material_page()</div>
+                            <div class='my-code-black'>
+                                include_fonts
+                            </div>
+                        </li>
+                        <li class="collection-item">
+                            <h5>Materialize</h5>v0.99.0</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+        <script src="highlight_r/highlight.pack.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('.parallax').parallax();
+                $('.modal').modal();
+                $('.shiny-material-dropdown').material_select();
+                $(".shiny-material-radio-button").find("input:first").trigger("click");
+                hljs.initHighlightingOnLoad();
+                $('.datepicker').pickadate({});
+            });
+
+        </script>
 </body>
 
 </html>
