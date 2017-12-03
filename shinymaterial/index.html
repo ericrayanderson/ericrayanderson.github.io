@@ -385,9 +385,18 @@ shinyApp(ui = ui, server = server)</code></pre>
                             <input id="example_text_box" type="text" class="validate" />
                             <label for="example_text_box">Text Box</label>
                         </div>
-                        <br>
-                        <!--
-                    <a class="btn-floating btn-large waves-effect waves-light" style="background-color:#F06C71"><i class="material-icons">add</i></a> -->
+                        <br/>
+                        <form action="#">
+                            <div class="file-field input-field">
+                                <div class="btn">
+                                    <span>File</span>
+                                    <input type="file">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text">
+                                </div>
+                            </div>
+                        </form>
                     </div>
                     <div class="col s12 m4 offset-m1">
                         <pre><code class='r'>
