@@ -108,7 +108,7 @@
             <ul class="section table-of-contents">
 
                 <li>
-                    <a href="#usage">Installation</a>
+                    <a href="#installation">Installation</a>
                 </li>
 
                 <li>
@@ -129,7 +129,7 @@
 
         <div class='row'>
             <div class='col s9 offset-s2'>
-                <div id="installation">
+                <div id="installation" class="section scrollspy">
 
                     <h2 class='my-code' style='font-size:75px;color:black;font-weight:500'>Installation</h2>
                     <div class="card">
@@ -152,7 +152,7 @@
                 <br>
 
 
-                <div id="basic">
+                <div id="basic" class="section scrollspy">
                     <h2 class='my-code' style='font-size:75px;color:black;font-weight:500'>Basic Template</h2>
                     <pre><code class='r'>library(shiny)
 library(shinymaterial)
@@ -176,7 +176,7 @@ shinyApp(ui = ui, server = server)</code></pre>
 
 
 
-                <div id="basic_side_nav_with_tabs">
+                <div id="basic_side_nav_with_tabs" class="section scrollspy">
                     <h2 class='my-code' style='font-size:75px;color:black;font-weight:500'>Dashboard Template</h2>
                     <pre><code class='r'>library(shiny)
 library(shinymaterial)
@@ -221,7 +221,7 @@ shinyApp(ui = ui, server = server)
                     <br>
                 </div>
 
-                <div id="basic_side_nav_tabs">
+                <div id="basic_side_nav_tabs" class="section scrollspy">
                     <h2 class='my-code' style='font-size:75px;color:black;font-weight:500'>Tabs & Side-Nav Template</h2>
                     <pre><code class='r'>library(shiny)
 library(shinymaterial)
@@ -270,7 +270,7 @@ shinyApp(ui = ui, server = server)</code></pre>
                     <br>
                 </div>
 
-                <div id="basic_parallax">
+                <div id="basic_parallax" class="section scrollspy">
                     <h2 class='my-code' style='font-size:75px;color:black;font-weight:500'>Parallax</h2>
                     <pre><code class='r'>library(shiny)
 library(shinymaterial)
@@ -331,7 +331,7 @@ shinyApp(ui = ui, server = server)</code></pre>
                 </ul>
             </div>
             <!------------------------------- CARDS BEGIN ------------------------------->
-            <div class="row" id="features_cards">
+            <div id="features_cards" class="row section scrollspy">
                 <div class="col s12 m6 offset-m2">
                     <h2 class='my-code' style='font-size:75px;color:black;font-weight:500'>Cards</h2>
                 </div>
@@ -345,12 +345,12 @@ shinyApp(ui = ui, server = server)</code></pre>
                         </div>
                     </div>
 
-                    <div class="col s12 m4">
+                    <div class="col s12 m3">
                         <pre><code class='r'>
- material_card(
-   title = "Miles Per Gallon Density",
-   plotOutput("mpg_density")
- )
+material_card(
+ title = "Miles Per Gallon Density",
+ plotOutput("mpg_density")
+)
         </code></pre>
                     </div>
                 </div>
@@ -358,7 +358,7 @@ shinyApp(ui = ui, server = server)</code></pre>
 
             <!------------------------------- CARDS END ------------------------------->
             <!------------------------------- DEPTH BEGIN ------------------------------->
-            <div class="row" id="features_depth">
+            <div id="features_depth" class="row section scrollspy">
                 <div class="col s10 offset-s2">
                     <h2 class='my-code' style='font-size:75px;color:black;font-weight:500'>Depth</h2>
                 </div>
@@ -375,7 +375,7 @@ shinyApp(ui = ui, server = server)</code></pre>
                     <button class="waves-effect waves-light btn z-depth-5" id="example_button" value="0">BUTTON</button>
                 </div>
 
-                <div class="col s12 m4">
+                <div class="col s12 m3">
                     <pre><code class='r'>
  material_button(
    input_id = "example_button",
@@ -437,7 +437,7 @@ shinyApp(ui = ui, server = server)</code></pre>
 
             <!------------------------------- INPUTS BEGIN ------------------------------->
             <div class="">
-                <div class="row" id="features_inputs">
+                <div id="features_inputs" class="row section scrollspy">
                     <div class="col s10 offset-s2">
                         <h2 class='my-code' style='font-size:75px;color:black;font-weight:500'>Inputs</h2>
                     </div>
@@ -521,7 +521,7 @@ shinyApp(ui = ui, server = server)</code></pre>
                         <br/>
 
                     </div>
-                    <div class="col s12 m4 offset-m1">
+                    <div class="col s12 m3 offset-m1">
                         <pre><code class='r'>
  material_button(
    input_id = "example_button",
@@ -650,7 +650,7 @@ shinyApp(ui = ui, server = server)</code></pre>
             <!------------------------------- INPUTS END ------------------------------->
 
             <!------------------------------- MODALS BEGIN ------------------------------->
-            <div class="row" id="features_modals">
+            <div id="features_modals" class="row section scrollspy">
                 <div class="col s10 offset-s2">
                     <h2 class='my-code' style='font-size:75px;color:black;font-weight:500;font-weight:500'>Modals</h2>
                 </div>
@@ -674,7 +674,7 @@ shinyApp(ui = ui, server = server)</code></pre>
                     </div>
 
                 </div>
-                <div class='col s12 m5 offset-m1'>
+                <div class='col s12 m4 offset-m1'>
                     <pre><code class='r'>
  material_modal(
    modal_id = "example_modal",
@@ -691,7 +691,7 @@ shinyApp(ui = ui, server = server)</code></pre>
 
             <!------------------------------- MODALS END ------------------------------->
             <!------------------------------- PARALLAX BEGIN ------------------------------->
-            <div class="row" id="features_parallax">
+            <div id="features_parallax" class="row section scrollspy">
                 <div class="col s10 offset-s2">
                     <h2 class='my-code' style='font-size:75px;color:black;font-weight:500'>Parallax</h2>
                 </div>
@@ -706,7 +706,7 @@ shinyApp(ui = ui, server = server)</code></pre>
                 </div>
             </div>
             <div class="row">
-                <div class="col s10 offset-s3">
+                <div class="col s10 offset-s4">
                     <div class='row'>
                         <div class='col s12 m6'>
                             <pre><code class='r'>
@@ -724,7 +724,7 @@ shinyApp(ui = ui, server = server)</code></pre>
 
         <!------------------------------- PARALLAX END ------------------------------->
         <!------------------------------- SPINNER BEGIN ------------------------------->
-        <div class="row" id="features_progress_spinner">
+        <div id="features_progress_spinner" class="row section scrollspy">
             <div class="col s10 offset-s2">
                 <h2 class='my-code' style='font-size:75px;color:black;font-weight:500;font-weight:500'>Progress Spinner</h2>
             </div>
@@ -781,7 +781,7 @@ shinyApp(ui = ui, server = server)</code></pre>
                     </div>
                 </div>
             </div>
-            <div class='col s12 m7'>
+            <div class='col s12 m6'>
                 <pre><code class='r'>library(shiny)
 library(shinymaterial)
   
@@ -822,7 +822,7 @@ library(shinymaterial)
         <!------------------------------- SPINNER END ------------------------------->
 
         <!------------------------------- SERVER SIDE BEGIN ------------------------------->
-        <div class="row" id="features_server_side">
+        <div id="features_server_side" class="row section scrollspy">
             <div class="col s10 offset-s2">
                 <h2 class='my-code' style='font-size:75px;color:black;font-weight:500'>Server Side</h2>
             </div>
@@ -832,7 +832,7 @@ library(shinymaterial)
                         <div class="container">
                             <div class='my-code'>
 
-                                <br> update_material_checkbox() <br> update_material_dropdown() <br> update_material_number_box() <br> update_material_password_box() <br> update_material_radio_button() <br> update_material_slider() <br>update_material_switch() <br> update_material_text_box()
+                                <br> update_material_checkbox() <br> update_material_date_picker <br> update_material_dropdown() <br> update_material_number_box() <br> update_material_password_box() <br> update_material_radio_button() <br> update_material_slider() <br>update_material_switch() <br> update_material_text_box()
                                 <br>
                                 <br>
                             </div>
@@ -1006,7 +1006,7 @@ library(shinymaterial)
                     <li class="collection-item">
                         <h5>New Functions</h5>
                         <div class='my-code'>
-                            material_file_input() <br> material_spinner_hide() <br> material_spinner_show() <br> update_material_checkbox() <br> update_material_dropdown() <br> update_material_number_box() <br> update_material_password_box() <br> update_material_radio_button() <br> update_material_slider() <br>update_material_switch() <br> update_material_text_box()
+                            material_file_input() <br> material_spinner_hide() <br> material_spinner_show() <br> update_material_checkbox() <br> update_material_date_picker <br> update_material_dropdown() <br> update_material_number_box() <br> update_material_password_box() <br> update_material_radio_button() <br> update_material_slider() <br>update_material_switch() <br> update_material_text_box()
                         </div>
                     </li>
                     <li class="collection-item">
@@ -1036,6 +1036,7 @@ library(shinymaterial)
             $(".shiny-material-radio-button").find("input:first").trigger("click");
             hljs.initHighlightingOnLoad();
             $('.datepicker').pickadate({});
+            $('.scrollspy').scrollSpy();
         });
 
     </script>
