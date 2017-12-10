@@ -131,7 +131,7 @@
                 </div>
 
                 <br>
-                <br>
+
 
                 <div id="basic">
                     <h2 class='myh2'>Basic</h2>
@@ -292,28 +292,146 @@ shinyApp(ui = ui, server = server)</code></pre>
     </div>
     <div class="col s12 m12" id="features">
         <div class="row">
-            <br>
 
-            <div class="row">
-                <div class="col s12 m2 offset-m1">
-                    <h1 class='my-code' style='font-size:75px;color:black;font-weight:500'>Features</h1>
-                    <div class="collection">
-                        <a href="#features_inputs" class="collection-item">Inputs</a>
+
+            <div class="toc-wrapper pinned">
+                <ul class="section table-of-contents">
+                    <li>
                         <a href="#features_cards" class="collection-item">Cards</a>
+                    </li>
+                    <li>
                         <a href="#features_depth" class="collection-item">Depth</a>
+                    </li>
+                    <li><a href="#features_inputs" class="collection-item">Inputs</a>
+                    </li>
+                    <li>
                         <a href="#features_modals" class="collection-item">Modals</a>
+                    </li>
+                    <li>
                         <a href="#features_parallax" class="collection-item">Parallax</a>
+                    </li>
+                    <li>
+                        <a href="#features_progress_spinner" class="collection-item">Progress Spinner</a></li>
+                    <li>
+                        <a href="#features_server_side" class="collection-item">Server Side</a>
+                    </li>
+
+                </ul>
+            </div>
+            <!------------------------------- CARDS BEGIN ------------------------------->
+            <div class="row" id="features_cards">
+                <div class="col s12 m6 offset-m2">
+                    <h2 class='my-code' style='font-size:75px;color:black;font-weight:500'>Cards</h2>
+                </div>
+                <div class="row">
+                    <div class="col s12 m6 offset-m2">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title">Miles Per Gallon Density</span>
+                                <img height="100%" width="100%" src="img/mpg_density.png">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m4">
+                        <pre><code class='r'>
+ material_card(
+   title = "Miles Per Gallon Density",
+   plotOutput("mpg_density")
+ )
+        </code></pre>
                     </div>
                 </div>
             </div>
+
+            <!------------------------------- CARDS END ------------------------------->
+            <!------------------------------- DEPTH BEGIN ------------------------------->
+            <div class="row" id="features_depth">
+                <div class="col s10 offset-s2">
+                    <h2 class='my-code' style='font-size:75px;color:black;font-weight:500'>Depth</h2>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col s12 m2 offset-m2">
+                    <button class="waves-effect waves-light btn z-depth-0" id="example_button" value="0">BUTTON</button>
+                </div>
+                <div class="col s12 m2">
+                    <button class="waves-effect waves-light btn z-depth-2" id="example_button" value="0">BUTTON</button>
+                </div>
+                <div class="col s12 m2">
+                    <button class="waves-effect waves-light btn z-depth-5" id="example_button" value="0">BUTTON</button>
+                </div>
+
+                <div class="col s12 m4">
+                    <pre><code class='r'>
+ material_button(
+   input_id = "example_button",
+   label = "BUTTON",
+   depth = 5
+ )
+        </code></pre>
+                </div>
+            </div>
+
+
+
+
+            <div class="row">
+
+                <div class="col s12 m3 offset-m2">
+                    <div class="card z-depth-0">
+                        <div class="card-content">
+                            <span class="card-title">Card</span>
+                            <img height="100%" width="100%" src="img/mpg_density.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m3">
+                    <div class="card z-depth-2">
+                        <div class="card-content">
+                            <span class="card-title">Card</span>
+                            <img height="100%" width="100%" src="img/mpg_density.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m3">
+                    <div class="card z-depth-5">
+                        <div class="card-content">
+                            <span class="card-title">Card</span>
+                            <img height="100%" width="100%" src="img/mpg_density.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row" style='display:none'>
+                <div class="col s12 m3 offset-m7">
+                    <pre><code class='r'>
+ material_card(
+   title = "Card",
+   depth = 5,
+   plotOutput("mpg_density")
+  )
+        </code></pre>
+                </div>
+            </div>
+            <!------------------------------- DEPTH END ------------------------------->
+
+
+
+
+
+            <!------------------------------- INPUTS BEGIN ------------------------------->
             <div class="">
                 <div class="row" id="features_inputs">
-                    <div class="col s10 offset-s1">
-                        <h2 class='my-code' style='font-size:50px;color:black;font-weight:500'>Inputs</h2>
+                    <div class="col s10 offset-s2">
+                        <h2 class='my-code' style='font-size:75px;color:black;font-weight:500'>Inputs</h2>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s12 m2 offset-m1">
+                    <div class="col s12 m2 offset-m2">
                         <br/>
                         <button class="waves-effect waves-light btn" id="example_button" value="0">Button</button>
                         <br/>
@@ -413,7 +531,7 @@ shinyApp(ui = ui, server = server)</code></pre>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s12 m4 offset-m1">
+                    <div class="col s12 m4 offset-m2">
                         <form action="#">
                             <div class="file-field input-field">
                                 <div class="btn">
@@ -428,12 +546,12 @@ shinyApp(ui = ui, server = server)</code></pre>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s12 m4 offset-m1">
+                    <div class="col s12 m4 offset-m2">
                         <h4>Input colors</h4>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s12 m7 offset-m1">
+                    <div class="col s12 m9 offset-m2">
                         <div class="row">
                             <div class="col s12 m2">
                                 <button class="waves-effect waves-light btn red" id="example_button" value="0">red</button>
@@ -504,7 +622,9 @@ shinyApp(ui = ui, server = server)</code></pre>
                             </div>
                         </div>
                     </div>
-                    <div class="col s12 m3">
+                </div>
+                <div class="row">
+                    <div class="col s12 m4 offset-m2">
                         <pre><code class='r'>
  material_button(
    input_id = "example_button",
@@ -514,178 +634,209 @@ shinyApp(ui = ui, server = server)</code></pre>
         </code></pre>
                     </div>
                 </div>
+            </div>
+            <!------------------------------- INPUTS END ------------------------------->
 
-
-
-                <div class="row" id="features_cards">
-                    <div class="col s10 offset-s1">
-                        <h2 class='my-code' style='font-size:50px;color:black;font-weight:500'>Cards</h2>
-                    </div>
-                    <div class="row">
-                        <div class="col s12 m6 offset-m1">
-                            <div class="card">
-                                <div class="card-content">
-                                    <span class="card-title">Miles Per Gallon Density</span>
-                                    <img height="100%" width="100%" src="img/mpg_density.png">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col s12 m4">
-                            <pre><code class='r'>
- material_card(
-   title = "Miles Per Gallon Density",
-   plotOutput("mpg_density")
- )
-        </code></pre>
-                        </div>
-                    </div>
+            <!------------------------------- MODALS BEGIN ------------------------------->
+            <div class="row" id="features_modals">
+                <div class="col s10 offset-s2">
+                    <h2 class='my-code' style='font-size:75px;color:black;font-weight:500;font-weight:500'>Modals</h2>
                 </div>
-                <div class="row" id="features_depth">
-                    <div class="col s10 offset-s1">
-                        <h2 class='my-code' style='font-size:50px;color:black;font-weight:500'>Depth</h2>
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="col s12 m2 offset-m1">
-                        <button class="waves-effect waves-light btn z-depth-0" id="example_button" value="0">BUTTON</button>
-                    </div>
-                    <div class="col s12 m2">
-                        <button class="waves-effect waves-light btn z-depth-2" id="example_button" value="0">BUTTON</button>
-                    </div>
-                    <div class="col s12 m2">
-                        <button class="waves-effect waves-light btn z-depth-5" id="example_button" value="0">BUTTON</button>
-                    </div>
-
-                    <div class="col s12 m3">
-                        <pre><code class='r'>
- material_button(
-   input_id = "example_button",
-   label = "BUTTON",
-   depth = 5
- )
-        </code></pre>
-                    </div>
-                </div>
-
-
-
-
-                <div class="row">
-
-                    <div class="col s12 m3 offset-m1">
-                        <div class="card z-depth-0">
-                            <div class="card-content">
-                                <span class="card-title">Card</span>
-                                <img height="100%" width="100%" src="img/mpg_density.png">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col s12 m3">
-                        <div class="card z-depth-2">
-                            <div class="card-content">
-                                <span class="card-title">Card</span>
-                                <img height="100%" width="100%" src="img/mpg_density.png">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col s12 m3">
-                        <div class="card z-depth-5">
-                            <div class="card-content">
-                                <span class="card-title">Card</span>
-                                <img height="100%" width="100%" src="img/mpg_density.png">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <br>
-                <div class="row" style='display:none'>
-                    <div class="col s12 m3 offset-m7">
-                        <pre><code class='r'>
- material_card(
-   title = "Card",
-   depth = 5,
-   plotOutput("mpg_density")
-  )
-        </code></pre>
-                    </div>
-                </div>
-                <div class="row" id="features_modals">
-                    <div class="col s10 offset-s1">
-                        <h2 class='my-code' style='font-size:50px;color:black;font-weight:500;font-weight:500'>Modals</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12 m2 offset-m1">
-                        <div class="">
-                            <button data-target="showcase_modal" class="waves-effect waves-light shiny-material-modal-trigger btn" style="">
+            </div>
+            <div class="row">
+                <div class="col s12 m2 offset-m2">
+                    <div class="">
+                        <button data-target="example_modal" class="waves-effect waves-light shiny-material-modal-trigger btn" style="">
               <i class="material-icons left">open_in_browser</i>
               Modal
             </button>
-                        </div>
-                        <div id="showcase_modal" class="modal">
-                            <div class="modal-content">
-                                <h4>Showcase Modal Title</h4>
-                                <p>Modal Content</p>
-                            </div>
-                            <div class="modal-footer">
-                                <a href="javascript:void(0)" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-                            </div>
-                        </div>
-
                     </div>
-                    <div class='col s12 m4 offset-m1'>
-                        <pre><code class='r'>
+                    <div id="example_modal" class="modal">
+                        <div class="modal-content">
+                            <h4>Showcase Modal Title</h4>
+                            <p>Modal Content</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="javascript:void(0)" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class='col s12 m5 offset-m1'>
+                    <pre><code class='r'>
  material_modal(
-   modal_id = "showcase_modal",
+   modal_id = "example_modal",
    button_text = "Modal",
    button_icon = "open_in_browser",
    title = "Showcase Modal Title",
    tags$p("Modal Content")
  )
         </code></pre>
-                    </div>
+                </div>
 
 
+            </div>
+
+            <!------------------------------- MODALS END ------------------------------->
+            <!------------------------------- PARALLAX BEGIN ------------------------------->
+            <div class="row" id="features_parallax">
+                <div class="col s10 offset-s2">
+                    <h2 class='my-code' style='font-size:75px;color:black;font-weight:500'>Parallax</h2>
                 </div>
-                <div class="row" id="features_parallax">
-                    <div class="col s10 offset-s1">
-                        <h2 class='my-code' style='font-size:50px;color:black;font-weight:500'>Parallax</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12 offset-s0">
-                        <div class="parallax-container">
-                            <div class="parallax">
-                                <img src="img/trains.jpg" />
-                            </div>
+            </div>
+            <div class="row">
+                <div class="col s9 offset-s2">
+                    <div class="parallax-container">
+                        <div class="parallax">
+                            <img src="img/trains.jpg" />
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col s10 offset-s3">
-                        <div class='row'>
-                            <div class='col s12 m6'>
-                                <pre><code class='r'>
+            </div>
+            <div class="row">
+                <div class="col s10 offset-s3">
+                    <div class='row'>
+                        <div class='col s12 m6'>
+                            <pre><code class='r'>
  material_parallax(
    # Image in a folder labeled "www"
    image_source = "trains.jpg"
  )
         </code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!------------------------------- PARALLAX END ------------------------------->
+        <!------------------------------- SPINNER BEGIN ------------------------------->
+        <div class="row" id="features_progress_spinner">
+            <div class="col s10 offset-s2">
+                <h2 class='my-code' style='font-size:75px;color:black;font-weight:500;font-weight:500'>Progress Spinner</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m2 offset-m2">
+                <div class="preloader-wrapper big active">
+                    <div class="spinner-layer spinner-blue">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+
+                    <div class="spinner-layer spinner-red">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+
+                    <div class="spinner-layer spinner-yellow">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+
+                    <div class="spinner-layer spinner-green">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='col s12 m7'>
+                <pre><code class='r'>library(shiny)
+library(shinymaterial)
+  
+  ui <- material_page(
+    title = "Spinner Example",
+    numericInput(inputId = "n", label = "", value = 10),
+    plotOutput("n_plot")
+ )
+  
+  server <- function(input, output, session) {
+    
+    output$n_plot <- renderPlot({
+    
+      #--- Show the spinner ---#
+      material_spinner_show(session, "n_plot")
+      
+      #--- Simulate calculation step ---#
+      Sys.sleep(time = 5)
+      
+      #--- Hide the spinner ---#
+      material_spinner_hide(session, "n_plot")
+      
+      plot(1:input$n)
+    })
+    
+  }
+  shinyApp(ui = ui, server = server)
+        </code></pre>
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <!------------------------------- SPINNER END ------------------------------->
+
+        <!------------------------------- SERVER SIDE BEGIN ------------------------------->
+        <div class="row" id="features_server_side">
+            <div class="col s10 offset-s2">
+                <h2 class='my-code' style='font-size:75px;color:black;font-weight:500'>Server Side</h2>
+            </div>
+            <div class="row">
+                <div class="col s12 m6 offset-m2">
+                    <div class="card">
+                        <div class="container">
+                            <div class='my-code'>
+
+                                <br> update_material_checkbox() <br> update_material_dropdown() <br> update_material_number_box() <br> update_material_password_box() <br> update_material_radio_button() <br> update_material_slider() <br>update_material_switch() <br> update_material_text_box()
+                                <br>
+                                <br>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
+
+        <!------------------------------- SERVER SIDE END ------------------------------->
     </div>
+
     <div class="col s12" id="showcase">
         <br>
         <div class="row">
-            <div class="col s5 offset-s1">
+            <div class="col s4 offset-s2">
                 <div class="card">
                     <div class="card-content">
                         <span class="card-title teal-text">Basic App</span>
@@ -693,7 +844,7 @@ shinyApp(ui = ui, server = server)</code></pre>
                     </div>
                 </div>
             </div>
-            <div class="col s5">
+            <div class="col s4">
                 <div class="card">
                     <div class="card-content">
                         <span class="card-title teal-text">Dashboard</span>
@@ -703,7 +854,7 @@ shinyApp(ui = ui, server = server)</code></pre>
             </div>
         </div>
         <div class="row">
-            <div class="col s5 offset-s1">
+            <div class="col s4 offset-s2">
                 <div class="card">
                     <div class="card-content">
                         <span class="card-title teal-text">Parallax</span>
