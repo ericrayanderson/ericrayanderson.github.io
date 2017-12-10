@@ -104,37 +104,52 @@
         </div>
     </div>
     <div class="col s12" id="usage">
-        <br>
-        <div class='row'>
-            <div class='col s10 offset-s1'>
-                <h1 class='my-code' style='font-size:75px;color:black;font-weight:500'>Installation</h1>
-                <h6>
-                    <div class='my-code'>CRAN:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;install.packages(shinymaterial)</div>
-                </h6>
+        <div class="toc-wrapper pinned">
+            <ul class="section table-of-contents">
 
-                <h6>
-                    <div class='my-code'>DEVELOPMENT:&nbsp;&nbsp;&nbsp;devtools::install_github("ericrayanderson/shinymaterial")</div>
-                </h6>
+                <li>
+                    <a href="#installation">Installation</a>
+                </li>
+
+                <li>
+                    <a href="#basic">Basic Template</a>
+                </li>
+                <li>
+                    <a href="#basic_side_nav_with_tabs">Dashboard Template</a>
+                </li>
+                <li>
+                    <a href="#basic_side_nav_tabs">Tabs Template</a>
+                </li>
+                <!--
+                <li>
+                    <a href="#basic_parallax">Basic + Parallax</a>
+                </li>
+-->
+            </ul>
+        </div>
+
+        <div class='row'>
+            <div class='col s10 offset-s2'>
+                <div id="installation">
+                    <h2 class='my-code' style='font-size:75px;color:black;font-weight:500'>Installation</h2>
+                    <h6>
+                        <div class='my-code' style='font-size:20px'>CRAN:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;install.packages(shinymaterial)</div>
+                    </h6>
+
+                    <h6>
+                        <div class='my-code' style='font-size:20px'>DEVELOPMENT:&nbsp;&nbsp;&nbsp;devtools::install_github("ericrayanderson/shinymaterial")</div>
+                    </h6>
+                </div>
                 <br>
 
-                <h1 class='my-code' style='font-size:75px;color:black;font-weight:500'>Templates</h1>
-                <div class="collection" style='width:400px'>
 
-                    <a href="#basic" class="collection-item">Basic</a>
 
-                    <a href="#basic_side_nav_with_tabs" class="collection-item">Basic + Side-Nav with Tabs (Dashboard)</a>
-
-                    <a href="#basic_side_nav_tabs" class="collection-item">Basic + Side-Nav + Tabs</a>
-
-                    <a href="#basic_parallax" class="collection-item">Basic + Parallax</a>
-
-                </div>
 
                 <br>
 
 
                 <div id="basic">
-                    <h2 class='myh2'>Basic</h2>
+                    <h2 class='my-code' style='font-size:75px;color:black;font-weight:500'>Basic Template</h2>
                     <pre><code class='r'>library(shiny)
 library(shinymaterial)
 
@@ -158,7 +173,7 @@ shinyApp(ui = ui, server = server)</code></pre>
 
 
                 <div id="basic_side_nav_with_tabs">
-                    <h2><span class='myh2'>Basic </span>+ Side-Nav with Tabs (Dashboard)</h2>
+                    <h2 class='my-code' style='font-size:75px;color:black;font-weight:500'>Dashboard Template</h2>
                     <pre><code class='r'>library(shiny)
 library(shinymaterial)
 
@@ -202,17 +217,8 @@ shinyApp(ui = ui, server = server)
                     <br>
                 </div>
 
-
-
-
-
-
-
-
-
-
                 <div id="basic_side_nav_tabs">
-                    <h2><span class='myh2'>Basic </span>+ Side-Nav + Tabs</h2>
+                    <h2 class='my-code' style='font-size:75px;color:black;font-weight:500'>Tabs Template</h2>
                     <pre><code class='r'>library(shiny)
 library(shinymaterial)
 
@@ -259,6 +265,7 @@ shinyApp(ui = ui, server = server)</code></pre>
                     <br>
                     <br>
                 </div>
+                <!--
                 <div id="basic_parallax">
                     <h2><span class='myh2'>Basic </span> + Parallax</h2>
                     <pre><code class='r'>library(shiny)
@@ -287,6 +294,7 @@ shinyApp(ui = ui, server = server)</code></pre>
 
                     </div>
                 </div>
+                -->
             </div>
         </div>
     </div>
@@ -297,23 +305,23 @@ shinyApp(ui = ui, server = server)</code></pre>
             <div class="toc-wrapper pinned">
                 <ul class="section table-of-contents">
                     <li>
-                        <a href="#features_cards" class="collection-item">Cards</a>
+                        <a href="#features_cards">Cards</a>
                     </li>
                     <li>
-                        <a href="#features_depth" class="collection-item">Depth</a>
+                        <a href="#features_depth">Depth</a>
                     </li>
-                    <li><a href="#features_inputs" class="collection-item">Inputs</a>
-                    </li>
-                    <li>
-                        <a href="#features_modals" class="collection-item">Modals</a>
+                    <li><a href="#features_inputs">Inputs</a>
                     </li>
                     <li>
-                        <a href="#features_parallax" class="collection-item">Parallax</a>
+                        <a href="#features_modals">Modals</a>
                     </li>
                     <li>
-                        <a href="#features_progress_spinner" class="collection-item">Progress Spinner</a></li>
+                        <a href="#features_parallax">Parallax</a>
+                    </li>
                     <li>
-                        <a href="#features_server_side" class="collection-item">Server Side</a>
+                        <a href="#features_progress_spinner">Progress Spinner</a></li>
+                    <li>
+                        <a href="#features_server_side">Server Side</a>
                     </li>
 
                 </ul>
