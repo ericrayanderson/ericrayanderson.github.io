@@ -652,11 +652,10 @@
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <script>
 window.onload = function () {
-    //var afterHastag = window.location.href.match('[^#]*$');
-    //if (afterHastag.index != 0) {
-    //    document.querySelector("a[href='#" + afterHastag + "']").click();
-    //}
-    $(".mdl-layout__tab:eq(1) span").click ();
+    var afterHastag = window.location.href.match('[^#]*$');
+    if (afterHastag.index != 0) {
+        document.querySelector("a[href='#" + afterHastag + "']").getElementsByTagName('span')[0].click();
+    }
 }
 </script>
   </body>
