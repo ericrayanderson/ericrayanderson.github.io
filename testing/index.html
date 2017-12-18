@@ -652,11 +652,12 @@
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <script>
 window.onload = function () {
+  window.setTimeout(function() {
     var afterHastag = window.location.href.match('[^#]*$');
     if (afterHastag.index != 0) {
         startingTabLink = document.querySelector("a[href='#" + afterHastag + "']").click();
     }
-}
+}, 0);
 </script>
   </body>
 </html>
