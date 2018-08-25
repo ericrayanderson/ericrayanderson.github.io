@@ -296,11 +296,11 @@ select[name$=_length] {
     <span class="hljs-keyword">if</span>(input$plot_theme == <span class="hljs-string">"light"</span>){
       plot_output &lt;- 
         plot_output + 
-        theme_light()
+        theme_light(base_size = 20)
     } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(input$plot_theme == <span class="hljs-string">"dark"</span>){
       plot_output &lt;-
         plot_output + 
-        theme_dark()
+        theme_dark(base_size = 20)
     }
     
     plot_output
