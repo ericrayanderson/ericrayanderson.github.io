@@ -1161,12 +1161,13 @@ library(shinymaterial)
     <script src="highlight_r/highlight.pack.js"></script>
     <script>
         $(document).ready(function() {
+          M.AutoInit()
             $('.parallax').parallax();
             $('.modal').modal();
-            $('.shiny-material-dropdown').material_select();
+            $('.shiny-material-dropdown').formSelect();
             $(".shiny-material-radio-button").find("input:first").trigger("click");
             hljs.initHighlightingOnLoad();
-            $('.datepicker').pickadate({});
+            $('.datepicker').datepicker({});
             $('.scrollspy').scrollSpy();
         });
 
