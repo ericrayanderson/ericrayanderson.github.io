@@ -155,25 +155,25 @@ select[name$=_length] {
           <div class="card z-depth-4">
             <div class="card-content">
               <span class="card-title"></span>
-
-              <label for="facet_cyl">By Cylinder</label>
+              <p>By Cylinder</p>
               <div class="switch" id="facet_cyl_switch">
                 <label>
-                  
+                   <label>
+      No
                   <input type="checkbox" id="facet_cyl" checked="">
                   <span class="lever"></span>
-                  
+                  Yes
                 </label>
               </div>
               <div></div>
               <br>
-              <label for="trend_line">Trend Line</label>
+              <p>Trend Line</p>
               <div class="switch" id="trend_line_switch">
                 <label>
-                  
+                  No
                   <input type="checkbox" id="trend_line">
                   <span class="lever"></span>
-                  
+                  Yes
                 </label>
               </div>
               <div></div>
@@ -223,18 +223,18 @@ select[name$=_length] {
       material_card(
         title = <span class="hljs-string">""</span>,
         depth = <span class="hljs-number">4</span>,
+        tags$p(<span class="hljs-string">"'By Cylinder'"</span>),
         material_switch(
           input_id = <span class="hljs-string">"facet_cyl"</span>,
-          label = <span class="hljs-string">"By Cylinder"</span>,
-          off_label = <span class="hljs-string">""</span>,
-          on_label = <span class="hljs-string">""</span>,
+          off_label = <span class="hljs-string">"No"</span>,
+          on_label = <span class="hljs-string">"Yes"</span>,
           initial_value = <span class="hljs-literal">TRUE</span>
         ),
+        tags$p(<span class="hljs-string">"'Include Trend Line'"</span>),
         material_switch(
           input_id = <span class="hljs-string">"trend_line"</span>,
-          label = <span class="hljs-string">"Trend Line"</span>,
-          off_label = <span class="hljs-string">""</span>,
-          on_label = <span class="hljs-string">""</span>
+          off_label = <span class="hljs-string">"No"</span>,
+          on_label = <span class="hljs-string">"Yes"</span>
         ),
         material_radio_button(
           input_id = <span class="hljs-string">"plot_theme"</span>,
