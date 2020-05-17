@@ -5,16 +5,15 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="css/materialize.min.css"> 
+    <link rel="stylesheet" href="css/materialize.min.css">
 
 
     <!--Let browser know website is optimized for mobile-->
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>shinymaterial</title>
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="highlight_r/styles/tomorrow-night-eighties.css">
     <style>
-    
         .my-code {
             font-family: monospace;
             color: blue;
@@ -27,30 +26,23 @@
             display: inline;
         }
 
-
-
-
-
     </style>
 </head>
 
 <body class="grey lighten-4">
-  
-    <div class="navbar-fixed">
-        <nav>
-            <div class="nav-wrapper">
-                <div href="javascript:void(0)" class="brand-logo">&nbsp;&nbsp;<a href="https://cran.r-project.org/web/packages/shinymaterial/index.html" target="_blank">shinymaterial v1.1.0</a></div>
-                <div href="javascript:void(0)" class="brand-logo right">
-                    <a href="https://github.com/ericrayanderson/shinymaterial" target="_blank">
+
+    <nav>
+        <div class="nav-wrapper">
+            <div href="javascript:void(0)" class="brand-logo">&nbsp;&nbsp;<a href="https://cran.r-project.org/web/packages/shinymaterial/index.html" target="_blank">shinymaterial</a></div>
+            <div href="javascript:void(0)" class="brand-logo right">
+                <a href="https://github.com/ericrayanderson/shinymaterial" target="_blank">
                     <img style=' color: white' src='img/GitHub-Mark-Light-32px.png'>&nbsp;
                 </a>
-                </div>
             </div>
-        </nav>
-    </div>
-    
-    <div class="row">
-    <div class="col s12">
+        </div>
+    </nav>
+
+
     <ul class="tabs tabs-fixed-width">
         <li class="tab">
             <a href="#about">About</a>
@@ -68,12 +60,11 @@
             <a href="#releases">Releases</a>
         </li>
     </ul>
-          </div>
-            </div>
+
     <div class="col s12" id="about">
         <div class="row">
             <div class="col s12 m8 offset-m2">
-                <br/>
+                <br />
 
                 <div class="card z-depth-3">
                     <div class="card-content">
@@ -81,7 +72,7 @@
                         <h4 style="line-height:110%">
                             <a href='https://material.io/guidelines/' target='_blank'>Material </a> design in <a href='https://shiny.rstudio.com/' target='_blank'>Shiny</a> apps
                         </h4>
-                        <br/>
+                        <br />
                         <div class="row">
                             <div class="col s12 m7">
                                 <img width="100%" src="img/materialLogo.jpg" />
@@ -315,7 +306,7 @@ shinyApp(ui = ui, server = server)</code></pre>
                     <li>
                         <a href="#features_server_side">Server Side</a>
                     </li>
-                     <li>
+                    <li>
                         <a href="#features_theme_colors">Theme Colors</a>
                     </li>
 
@@ -436,92 +427,92 @@ material_card(
                 </div>
                 <div class="row">
                     <div class="col s12 m2 offset-m2">
-                        <br/>
+                        <br />
                         <button class="waves-effect waves-light btn" id="example_button" value="0">Button</button>
-                        <br/>
-                        <br/>
+                        <br />
+                        <br />
                         Checkbox
-                       <form action="#">
-    <p>
-      <label>
-        <input type="checkbox" />
-        <span>Check</span>
-      </label>
-    </p>
+                        <form action="#">
+                            <p>
+                                <label>
+                                    <input type="checkbox" />
+                                    <span>Check</span>
+                                </label>
+                            </p>
                         </form>
-                        <br/>
+                        <br />
                         <div class="input-field">
                             <select id=example_dropdown class='shiny-material-dropdown'>
-                <option>&nbsp;Chicken</option>
-                <option selected>&nbsp;Steak</option>
-                <option>&nbsp;Fish</option>
-                </select>
+                                <option>&nbsp;Chicken</option>
+                                <option selected>&nbsp;Steak</option>
+                                <option>&nbsp;Fish</option>
+                            </select>
                             <label>Dropdown</label>
                         </div>
-                        <br/>
+                        <br />
                         <div class="input-field">
                             <input id="example_number_box" type="number" value="2" min="1" max="10" />
                             <label for="example_number_box">Number Box</label>
                         </div>
-                        <br/>
+                        <br />
                         <div class="input-field">
                             <input id="example_password_box" type="password" class="validate" />
                             <label for="example_password_box">Password Box</label>
                         </div>
 
 
-                        <br/>
+                        <br />
                         <label for="example_date_picker">Date Picker</label>
                         <input id="example_date_picker" type="date" class="datepicker">
                     </div>
                     <div class="col s12 m2 offset-m1">
-                        <br/>
-                  <form action="#">
-    Radio Buttons
-    <p>
-      <label>
-        <input name="group1" type="radio" checked />
-        <span>Chicken</span>
-      </label>
-    </p>
-    <p>
-      <label>
-        <input name="group1" type="radio" />
-        <span>Fish</span>
-      </label>
-    </p>
-    <p>
-      <label>
-        <input  name="group1" type="radio"  />
-        <span>Steak</span>
-      </label>
-    </p>
-    
-  </form>
-                        <br/>
+                        <br />
+                        <form action="#">
+                            Radio Buttons
+                            <p>
+                                <label>
+                                    <input name="group1" type="radio" checked />
+                                    <span>Chicken</span>
+                                </label>
+                            </p>
+                            <p>
+                                <label>
+                                    <input name="group1" type="radio" />
+                                    <span>Fish</span>
+                                </label>
+                            </p>
+                            <p>
+                                <label>
+                                    <input name="group1" type="radio" />
+                                    <span>Steak</span>
+                                </label>
+                            </p>
+
+                        </form>
+                        <br />
                         Slider
- <form action="#">
-    <p class="range-field">
-      <input type="range" id="test5" min="0" max="100" />
-    </p>
-  </form>
-        
-                        <br/>
+                        <form action="#">
+                            <p class="range-field">
+                                <input type="range" id="test5" min="0" max="100" />
+                            </p>
+                        </form>
+
+                        <br />
                         <label for="example_switch">Switch</label>
                         <div class="switch">
                             <label>
-                  Off
-                  <input type="checkbox" id="example_switch"/>
-                  <span class="lever"></span>
-                  On
-                </label>
+                                Off
+                                <input type="checkbox" id="example_switch" />
+                                <span class="lever"></span>
+                                On
+                            </label>
                         </div>
-                        <br/>
+                        <br />
                         <div class="input-field">
                             <input id="example_text_box" type="text" class="validate" />
                             <label for="example_text_box">Text Box</label>
                         </div>
-                        <br/>
+                        <br />
 
                     </div>
                     <div class="col s12 m3 offset-m1">
@@ -662,9 +653,9 @@ material_card(
                 <div class="col s12 m2 offset-m2">
                     <div class="">
                         <button data-target="example_modal" class="waves-effect waves-light shiny-material-modal-trigger btn modal-trigger" style="">
-              <i class="material-icons left">open_in_browser</i>
-              Modal
-            </button>
+                            <i class="material-icons left">open_in_browser</i>
+                            Modal
+                        </button>
                     </div>
                     <div id="example_modal" class="modal">
                         <div class="modal-content">
@@ -835,7 +826,7 @@ library(shinymaterial)
                         <div class="container">
                             <div class='my-code'>
 
-                              <br> close_material_modal() <br> open_material_modal() <br> side_nav_tabs_info() <br> update_material_button() <br> update_material_checkbox() <br> update_material_date_picker() <br> update_material_dropdown() <br> update_material_number_box() <br> update_material_password_box() <br> update_material_radio_button() <br> update_material_slider() <br>update_material_switch() <br> update_material_text_box()
+                                <br> close_material_modal() <br> open_material_modal() <br> side_nav_tabs_info() <br> update_material_button() <br> update_material_checkbox() <br> update_material_date_picker() <br> update_material_dropdown() <br> update_material_number_box() <br> update_material_password_box() <br> update_material_radio_button() <br> update_material_slider() <br>update_material_switch() <br> update_material_text_box()
                                 <br>
                                 <br>
                             </div>
@@ -847,13 +838,13 @@ library(shinymaterial)
         <!------------------------------- SERVER SIDE END ------------------------------->
         <!------------------------------- THEME COLORS BEGIN ------------------------------->
         <div id="features_theme_colors" class="row section scrollspy">
-                      <div class="col s10 offset-s2">
+            <div class="col s10 offset-s2">
                 <h2 class='my-code' style='font-size:75px;color:black;font-weight:500'>Theme Colors</h2>
             </div>
-                            <div class="row">
+            <div class="row">
 
-                    <div class="col s12 m4 offset-m2">
-                        <pre>
+                <div class="col s12 m4 offset-m2">
+                    <pre>
                           <code class='r'>
 material_page(
   title = "Basic Page", 
@@ -870,27 +861,27 @@ material_page(
 )
         </code>
         </pre>
-                    </div>
-                                        <div class="col s12 m4 offset-m1">
-                        <div class="card">
-                            <div class="card-content">
-                                <span class="card-title"></span>
-                                <img width="100%" src="img/theme-colors.png">
-                            </div>
+                </div>
+                <div class="col s12 m4 offset-m1">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title"></span>
+                            <img width="100%" src="img/theme-colors.png">
                         </div>
                     </div>
-          </div>
-          </div>
+                </div>
+            </div>
+        </div>
         <!------------------------------- THEME COLORS END ------------------------------->
-        
-    </div> 
+
+    </div>
 
     <div class="col s12" id="showcase">
         <br>
 
         <div class="row">
             <div class="col m4 offset-m2 s12">
-         <div class="card">
+                <div class="card">
                     <div class="card-content">
                         <span class="card-title">Dashboard</span>
                         <a href="https://ericrayanderson.shinyapps.io/shinymaterial_dashboard" target="_blank"><img src="img/shinymaterial_dashboard.png" width="100%"></a>
@@ -898,8 +889,8 @@ material_page(
                 </div>
             </div>
             <div class="col m4 s12">
-               
-                        <div class="card">
+
+                <div class="card">
                     <div class="card-content">
                         <span class="card-title">Basic App</span>
                         <a href="https://ericrayanderson.github.io/shinymaterial_showcase/" target="_blank"><img src="img/example_app2.png" width="100%"></a>
@@ -907,25 +898,25 @@ material_page(
                 </div>
             </div>
         </div>
-                <div class="row">
+        <div class="row">
             <div class="col m4 offset-m2 s12">
-                   <div class="card">
+                <div class="card">
                     <div class="card-content">
                         <span class="card-title">Parallax</span>
                         <a href="https://ericrayanderson.github.io/shinymaterial_parallax/" target="_blank"><img src="img/parallaxSS.png" width="100%"></a>
                     </div>
                 </div>
-        
+
             </div>
-           <div class="col m4 s12">
-                      <div class="card">
+            <div class="col m4 s12">
+                <div class="card">
                     <div class="card-content">
                         <span class="card-title">Cryptocurrency</span>
                         <a href="https://ericrayanderson.shinyapps.io/shinymaterial_crypto" target="_blank"><img src="img/shinymaterial_crypto.png" width="100%"></a>
                     </div>
                 </div>
-               
-            </div> 
+
+            </div>
         </div>
     </div>
 
@@ -934,43 +925,48 @@ material_page(
             <br>
             <div class="col s12 m6">
                 <h1 class='my-code' style='font-size:75px;color:black;font-weight:500'>CRAN</h1>
-                                                <ul class="collection">
+                <ul class="collection">
                     <li class="collection-item">
-                        <h5>Version</h5>1.1.0</li>
+                        <h5>Version</h5>1.1.0
+                    </li>
                     <li class="collection-item">
-                        <h5>Date</h5>5.16.2020</li>
+                        <h5>Date</h5>5.16.2020
+                    </li>
                     <li class="collection-item">
                         <h5>New Functions</h5>
                         None
                     </li>
-         <li class="collection-item">
-                                <h5>Function Updates</h5>
+                    <li class="collection-item">
+                        <h5>Function Updates</h5>
                         <i>New parameters</i><br>
                         <div class='my-code'>material_page()</div>
                         <div class='my-code-black'>
-                            primary_theme_color, secondary_theme_color 
+                            primary_theme_color, secondary_theme_color
                         </div>
                         <br>
                         <div class='my-code'>material_floating_button()</div>
                         <div class='my-code-black'>
                             pulse
                         </div>
-                     
+
                     </li>
                     <li class="collection-item">
-                        <h5>Materialize</h5>v1.0.0</li>
+                        <h5>Materialize</h5>v1.0.0
+                    </li>
                 </ul>
-                                <ul class="collection">
+                <ul class="collection">
                     <li class="collection-item">
-                        <h5>Version</h5>1.0.1</li>
+                        <h5>Version</h5>1.0.1
+                    </li>
                     <li class="collection-item">
-                        <h5>Date</h5>2.01.2020</li>
+                        <h5>Date</h5>2.01.2020
+                    </li>
                     <li class="collection-item">
                         <h5>New Functions</h5>
                         None
                     </li>
-         <li class="collection-item">
-                                <h5>Function Updates</h5>
+                    <li class="collection-item">
+                        <h5>Function Updates</h5>
                         <i>New parameters</i><br>
                         <div class='my-code'>material_text_box()</div>
                         <div class='my-code-black'>
@@ -981,47 +977,53 @@ material_page(
                         <div class='my-code-black'>
                             materialize_in_www
                         </div>
-                     
+
                     </li>
                     <li class="collection-item">
-                        <h5>Materialize</h5>v1.0.0</li>
+                        <h5>Materialize</h5>v1.0.0
+                    </li>
                 </ul>
-                  <ul class="collection">
+                <ul class="collection">
                     <li class="collection-item">
-                        <h5>Version</h5>0.5.5</li>
+                        <h5>Version</h5>0.5.5
+                    </li>
                     <li class="collection-item">
-                        <h5>Date</h5>3.3.2019</li>
+                        <h5>Date</h5>3.3.2019
+                    </li>
                     <li class="collection-item">
                         <h5>New Functions</h5>
                         <div class='my-code'>close_material_modal()</div>
                         <br>
                         <div class='my-code'>update_material_button()</div>
-                        
+
                     </li>
                     <li class="collection-item">
                         <h5>Function Updates</h5>
                         <i>New parameters</i><br>
-                                <div class='my-code'>material_radio_button()</div>
-            <div class='my-code-black'>
-                selected, with_gap
-            </div>
-               <br><i>Misc.</i><br>
-                <div class='my-code'>material_page()</div>
-            <div class='my-code-black'>
-                Icon files included with package
-            </div>
-                          </li>
+                        <div class='my-code'>material_radio_button()</div>
+                        <div class='my-code-black'>
+                            selected, with_gap
+                        </div>
+                        <br><i>Misc.</i><br>
+                        <div class='my-code'>material_page()</div>
+                        <div class='my-code-black'>
+                            Icon files included with package
+                        </div>
+                    </li>
 
                     <li class="collection-item">
-                        <h5>Materialize</h5>v0.99.0</li>
+                        <h5>Materialize</h5>v0.99.0
+                    </li>
                 </ul>
-                
+
 
                 <ul class="collection">
                     <li class="collection-item">
-                        <h5>Version</h5>0.5.4</li>
+                        <h5>Version</h5>0.5.4
+                    </li>
                     <li class="collection-item">
-                        <h5>Date</h5>2.2.2019</li>
+                        <h5>Date</h5>2.2.2019
+                    </li>
                     <li class="collection-item">
                         <h5>New Functions</h5>
                         None
@@ -1029,30 +1031,33 @@ material_page(
                     <li class="collection-item">
                         <h5>Function Updates</h5>
                         <i>New parameters</i><br>
-                                <div class='my-code'>material_card()</div>
-            <div class='my-code-black'>
-                color, divider
-            </div>
-            <br>
-                       <div class='my-code'>material_number_box()</div>
-    <div class='my-code-black'>
-        step_size
-    </div>
-        <br>
-        <div class='my-code'>material_slider()</div>
-            <div class='my-code-black'>
-                step_size
-            </div>
+                        <div class='my-code'>material_card()</div>
+                        <div class='my-code-black'>
+                            color, divider
+                        </div>
+                        <br>
+                        <div class='my-code'>material_number_box()</div>
+                        <div class='my-code-black'>
+                            step_size
+                        </div>
+                        <br>
+                        <div class='my-code'>material_slider()</div>
+                        <div class='my-code-black'>
+                            step_size
+                        </div>
                     </li>
                     <li class="collection-item">
-                        <h5>Materialize</h5>v0.99.0</li>
+                        <h5>Materialize</h5>v0.99.0
+                    </li>
                 </ul>
 
                 <ul class="collection">
                     <li class="collection-item">
-                        <h5>Version</h5>0.5.3</li>
+                        <h5>Version</h5>0.5.3
+                    </li>
                     <li class="collection-item">
-                        <h5>Date</h5>6.2.2018</li>
+                        <h5>Date</h5>6.2.2018
+                    </li>
                     <li class="collection-item">
                         <h5>New Functions</h5>
                         <div class='my-code'>
@@ -1067,21 +1072,24 @@ material_page(
                             close_button_label, display_button
                         </div>
                         <br>
-                          <div class='my-code'>material_page()</div>
+                        <div class='my-code'>material_page()</div>
                         <div class='my-code-black'>
                             include_nav_bar
                         </div>
                     </li>
                     <li class="collection-item">
-                        <h5>Materialize</h5>v0.99.0</li>
+                        <h5>Materialize</h5>v0.99.0
+                    </li>
                 </ul>
 
 
                 <ul class="collection">
                     <li class="collection-item">
-                        <h5>Version</h5>0.5.2</li>
+                        <h5>Version</h5>0.5.2
+                    </li>
                     <li class="collection-item">
-                        <h5>Date</h5>3.2.2018</li>
+                        <h5>Date</h5>3.2.2018
+                    </li>
                     <li class="collection-item">
                         <h5>New Functions</h5>
                         <div class='my-code'>
@@ -1097,7 +1105,8 @@ material_page(
                         </div>
                     </li>
                     <li class="collection-item">
-                        <h5>Materialize</h5>v0.99.0</li>
+                        <h5>Materialize</h5>v0.99.0
+                    </li>
                 </ul>
 
 
@@ -1107,9 +1116,11 @@ material_page(
 
                 <ul class="collection">
                     <li class="collection-item">
-                        <h5>Version</h5>0.4.1</li>
+                        <h5>Version</h5>0.4.1
+                    </li>
                     <li class="collection-item">
-                        <h5>Date</h5>10.28.2017</li>
+                        <h5>Date</h5>10.28.2017
+                    </li>
                     <li class="collection-item">
                         <h5>New Functions</h5>
                         <div class='my-code'>
@@ -1125,7 +1136,8 @@ material_page(
                         </div>
                     </li>
                     <li class="collection-item">
-                        <h5>Materialize</h5>v0.99.0</li>
+                        <h5>Materialize</h5>v0.99.0
+                    </li>
                 </ul>
 
 
@@ -1133,9 +1145,11 @@ material_page(
 
                 <ul class="collection">
                     <li class="collection-item">
-                        <h5>Version</h5>0.3.0</li>
+                        <h5>Version</h5>0.3.0
+                    </li>
                     <li class="collection-item">
-                        <h5>Date</h5>07.05.2017</li>
+                        <h5>Date</h5>07.05.2017
+                    </li>
                     <li class="collection-item">
                         <h5>New Functions</h5>
                         None
@@ -1145,7 +1159,8 @@ material_page(
                         Various bug fixes
                     </li>
                     <li class="collection-item">
-                        <h5>Materialize</h5>v0.99.0</li>
+                        <h5>Materialize</h5>v0.99.0
+                    </li>
                 </ul>
 
 
@@ -1159,9 +1174,11 @@ material_page(
 
                 <ul class="collection">
                     <li class="collection-item">
-                        <h5>Version</h5>0.2.1</li>
+                        <h5>Version</h5>0.2.1
+                    </li>
                     <li class="collection-item">
-                        <h5>Date</h5>04.29.2017</li>
+                        <h5>Date</h5>04.29.2017
+                    </li>
                     <li class="collection-item">
                         <h5>New Functions</h5>
                         <div class='my-code'>
@@ -1192,13 +1209,16 @@ material_page(
                         </div>
                     </li>
                     <li class="collection-item">
-                        <h5>Materialize</h5>v0.98.2</li>
+                        <h5>Materialize</h5>v0.98.2
+                    </li>
                 </ul>
                 <ul class="collection">
                     <li class="collection-item">
-                        <h5>Version</h5>0.1.0</li>
+                        <h5>Version</h5>0.1.0
+                    </li>
                     <li class="collection-item">
-                        <h5>Date</h5>04.15.2017</li>
+                        <h5>Date</h5>04.15.2017
+                    </li>
                     <li class="collection-item">
                         <h5>New Functions</h5>
                         <div class='my-code'>
@@ -1209,7 +1229,8 @@ material_page(
                         <h5>Function Updates</h5>None
                     </li>
                     <li class="collection-item">
-                        <h5>Materialize</h5>v0.98.1</li>
+                        <h5>Materialize</h5>v0.98.1
+                    </li>
                 </ul>
             </div>
 
@@ -1221,17 +1242,19 @@ material_page(
                         <div class='my-code'>remotes::install_github("ericrayanderson/shinymaterial")</div>
                     </li>
                     <li class="collection-item">
-                        <h5>Date</h5>On going</li>
-                          <li class="collection-item">
+                        <h5>Date</h5>On going
+                    </li>
+                    <li class="collection-item">
                         <h5>New Functions</h5>
                         None
                     </li>
                     <li class="collection-item">
-                                <h5>Function Updates</h5>
-                          None
+                        <h5>Function Updates</h5>
+                        None
                     </li>
                     <li class="collection-item">
-                        <h5>Materialize</h5>v1.0.0</li>
+                        <h5>Materialize</h5>v1.0.0
+                    </li>
                 </ul>
             </div>
         </div>
@@ -1243,7 +1266,7 @@ material_page(
     <script src="highlight_r/highlight.pack.js"></script>
     <script>
         $(document).ready(function() {
-          M.AutoInit()
+            M.AutoInit()
             $('.parallax').parallax();
             $('.modal').modal();
             $('.shiny-material-dropdown').formSelect();
