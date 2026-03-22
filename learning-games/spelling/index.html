@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Spelling Game · Learning Games</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background-color: #f0fdf4;
+            background-image: radial-gradient(#bbf7d0 2px, transparent 2px);
+            background-size: 30px 30px;
+            touch-action: manipulation;
+            user-select: none;
+        }
+        @keyframes popIn {
+            0%   { transform: scale(0.5); opacity: 0; }
+            80%  { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-10px); }
+            40%, 80% { transform: translateX(10px); }
+        }
+        @keyframes bounce-win {
+            0%, 100% { transform: translateY(0); }
+            50%       { transform: translateY(-20px); }
+        }
+        .animate-pop  { animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        .animate-shake { animation: shake 0.4s ease-in-out; }
+        .animate-win  { animation: bounce-win 0.5s ease-in-out infinite; }
+
+        .kid-btn {
+            transition: all 0.1s;
+            box-shadow: 0 6px 0 rgba(0,0,0,0.2);
+        }
+        .kid-btn:active:not(:disabled) {
+            transform: translateY(6px);
+            box-shadow: 0 0 0 rgba(0,0,0,0.2);
+        }
+        .kid-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: translateY(6px);
+            box-shadow: 0 0 0 rgba(0,0,0,0.2);
+        }
+        .letter-slot { box-shadow: inset 0 4px 6px rgba(0,0,0,0.1); }
+
+        /* Navbar */
+        #mobile-menu { transition: max-height 0.3s ease, opacity 0.3s ease; max-height: 0; opacity: 0; overflow: hidden; }
+        #mobile-menu.open { max-height: 200px; opacity: 1; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col text-gray-800">
+
+    <!-- NAVBAR -->
+    <nav class="bg-white shadow-md z-40 relative">
+        <div class="max-w-lg mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="../" class="flex items-center gap-2 text-xl font-bold text-green-600 hover:text-green-700">
+                🎮 <span>Learning Games</span>
+            </a>
+            <!-- Desktop links -->
+            <div class="hidden md:flex items-center gap-2">
+                <a href="../" class="px-3 py-1 rounded-full text-gray-500 hover:bg-green-50 hover:text-green-600 font-semibold transition">
+                    <i class="fa-solid fa-house mr-1"></i>Home
+                </a>
+                <a href="./" class="px-3 py-1 rounded-full bg-green-100 text-green-700 font-semibold">
+                    ✏️ Spelling
+                </a>
+            </div>
+            <!-- Hamburger -->
+            <button onclick="toggleNav()" class="md:hidden text-gray-500 hover:text-green-600 text-2xl w-10 h-10 flex items-center justify-center rounded-full hover:bg-green-50 transition" aria-label="Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile dropdown -->
+        <div id="mobile-menu">
+            <div class="max-w-lg mx-auto px-4 pb-3 flex flex-col gap-1">
+                <a href="../" class="flex items-center gap-2 px-3 py-2 rounded-xl text-gray-600 hover:bg-green-50 hover:text-green-700 font-semibold transition">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+                <a href="./" class="flex items-center gap-2 px-3 py-2 rounded-xl bg-green-100 text-green-700 font-semibold">
+                    ✏️ Spelling
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="flex-grow flex flex-col items-center justify-center">
+        <div class="text-8xl mb-6 animate-pop">✏️</div>
+        <h1 class="text-4xl md:text-5xl font-bold text-green-600 mb-3 text-center px-4">3-Letter Word Builder</h1>
+        <p class="text-gray-400 text-xl mb-8">Can you spell it?</p>
+        <button onclick="startGame()" class="kid-btn bg-yellow-400 hover:bg-yellow-500 text-yellow-900 text-3xl font-bold py-4 px-10 rounded-full border-4 border-yellow-500">
+            PLAY <i class="fa-solid fa-play ml-2"></i>
+        </button>
+    </div>
+
+    <!-- GAME SCREEN -->
+    <div id="game-screen" class="hidden flex-grow flex flex-col max-w-lg mx-auto w-full p-4">
+
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-4">
+            <button onclick="speakCurrentWord()" class="kid-btn bg-blue-400 text-white w-14 h-14 rounded-full text-2xl flex items-center justify-center border-4 border-blue-500" title="Hear the word">
+                <i class="fa-solid fa-volume-high"></i>
+            </button>
+            <div class="bg-white px-4 py-2 rounded-full border-4 border-yellow-400 shadow-md flex items-center gap-2">
+                <i class="fa-solid fa-star text-yellow-400 text-2xl"></i>
+                <span id="score-display" class="text-2xl font-bold text-gray-700">0</span>
+            </div>
+        </div>
+
+        <!-- Main game -->
+        <div class="flex-grow flex flex-col items-center justify-center pb-6">
+
+            <!-- Emoji -->
+            <div id="picture-display" class="text-[110px] md:text-[140px] leading-none mb-8 drop-shadow-xl animate-pop">
+                🐱
+            </div>
+
+            <!-- Word slots -->
+            <div class="flex gap-3 md:gap-4 mb-10" id="word-slots"></div>
+
+            <!-- Letter bank -->
+            <div class="flex gap-4 md:gap-6" id="letter-bank"></div>
+
+        </div>
+    </div>
+
+    <script>
+        const words = [
+            { word: 'CAT', emoji: '🐱' },
+            { word: 'DOG', emoji: '🐶' },
+            { word: 'SUN', emoji: '☀️' },
+            { word: 'PIG', emoji: '🐷' },
+            { word: 'COW', emoji: '🐮' },
+            { word: 'HAT', emoji: '🎩' },
+            { word: 'BUG', emoji: '🐛' },
+            { word: 'BAT', emoji: '🦇' },
+            { word: 'FOX', emoji: '🦊' },
+            { word: 'CAR', emoji: '🚗' },
+            { word: 'BUS', emoji: '🚌' },
+            { word: 'CUP', emoji: '☕' },
+            { word: 'EGG', emoji: '🥚' },
+            { word: 'OWL', emoji: '🦉' },
+            { word: 'BEE', emoji: '🐝' },
+            { word: 'ANT', emoji: '🐜' },
+            { word: 'ICE', emoji: '🧊' },
+            { word: 'JET', emoji: '✈️' },
+            { word: 'BED', emoji: '🛏️' },
+            { word: 'NUT', emoji: '🥜' },
+        ];
+
+        const buttonColors = [
+            'bg-red-400 border-red-500 text-white',
+            'bg-green-400 border-green-500 text-white',
+            'bg-blue-400 border-blue-500 text-white',
+            'bg-purple-400 border-purple-500 text-white',
+            'bg-pink-400 border-pink-500 text-white',
+            'bg-orange-400 border-orange-500 text-white',
+        ];
+
+        let currentWordObj = null;
+        let targetWord = '';
+        let currentLetterIndex = 0;
+        let score = 0;
+        let previousWordIndex = -1;
+        let usedIndices = [];
+
+        const startScreen  = document.getElementById('start-screen');
+        const gameScreen   = document.getElementById('game-screen');
+        const pictureDisplay     = document.getElementById('picture-display');
+        const wordSlotsContainer = document.getElementById('word-slots');
+        const letterBankContainer = document.getElementById('letter-bank');
+        const scoreDisplay = document.getElementById('score-display');
+
+        function speak(text, rate = 0.8, pitch = 1.2, cancelPrevious = true) {
+            if (!window.speechSynthesis) return;
+            if (cancelPrevious) window.speechSynthesis.cancel();
+            const utt = new SpeechSynthesisUtterance(text);
+            utt.rate = rate;
+            utt.pitch = pitch;
+            window.speechSynthesis.speak(utt);
+        }
+
+        function speakCurrentWord() {
+            if (currentWordObj) speak(targetWord, 0.8, 1.2, true);
+        }
+
+        function startGame() {
+            startScreen.classList.add('hidden');
+            gameScreen.classList.remove('hidden');
+            speak("Let's spell!");
+            setTimeout(loadNewWord, 1400);
+        }
+
+        function loadNewWord() {
+            currentLetterIndex = 0;
+
+            // If all words used, reset pool
+            if (usedIndices.length >= words.length) usedIndices = [];
+
+            let newIndex;
+            do { newIndex = Math.floor(Math.random() * words.length); }
+            while (newIndex === previousWordIndex || usedIndices.includes(newIndex));
+
+            previousWordIndex = newIndex;
+            usedIndices.push(newIndex);
+            currentWordObj = words[newIndex];
+            targetWord = currentWordObj.word;
+
+            // Emoji
+            pictureDisplay.innerText = currentWordObj.emoji;
+            pictureDisplay.classList.remove('animate-pop', 'animate-win');
+            void pictureDisplay.offsetWidth;
+            pictureDisplay.classList.add('animate-pop');
+
+            // Build slots
+            wordSlotsContainer.innerHTML = '';
+            for (let i = 0; i < 3; i++) {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'flex flex-col items-center gap-2';
+
+                const slot = document.createElement('div');
+                slot.className = 'letter-slot w-20 h-24 md:w-24 md:h-28 bg-white border-4 border-gray-300 rounded-2xl flex items-center justify-center text-5xl md:text-6xl font-bold text-gray-800 uppercase';
+
+                const num = document.createElement('span');
+                num.className = 'text-xl md:text-2xl font-bold text-gray-400';
+                num.innerText = i + 1;
+
+                wrapper.appendChild(slot);
+                wrapper.appendChild(num);
+                wordSlotsContainer.appendChild(wrapper);
+            }
+
+            // Shuffle letters with their correct positions
+            let lettersArray = targetWord.split('').map((char, i) => ({ char, order: i + 1 }));
+            for (let i = lettersArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [lettersArray[i], lettersArray[j]] = [lettersArray[j], lettersArray[i]];
+            }
+
+            const shuffledColors = [...buttonColors].sort(() => 0.5 - Math.random());
+
+            // Build letter bank
+            letterBankContainer.innerHTML = '';
+            lettersArray.forEach((item, index) => {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'flex flex-col items-center gap-2';
+
+                const btn = document.createElement('button');
+                btn.className = `kid-btn ${shuffledColors[index]} w-20 h-20 md:w-24 md:h-24 rounded-2xl text-4xl md:text-5xl font-bold uppercase border-b-8 animate-pop`;
+                btn.style.animationDelay = `${index * 0.1}s`;
+                btn.innerText = item.char;
+                btn.onclick = () => handleLetterClick(item.char, btn);
+
+                const num = document.createElement('span');
+                num.className = 'text-xl md:text-2xl font-bold text-gray-400';
+                num.innerText = item.order;
+
+                wrapper.appendChild(btn);
+                wrapper.appendChild(num);
+                letterBankContainer.appendChild(wrapper);
+            });
+
+            setTimeout(() => speak(targetWord, 0.8, 1.2, true), 500);
+        }
+
+        function handleLetterClick(clickedLetter, btnElement) {
+            if (currentLetterIndex >= targetWord.length) return;
+            const correctLetter = targetWord[currentLetterIndex];
+
+            if (clickedLetter === correctLetter) {
+                speak(clickedLetter, 1.0, 1.5, true);
+                btnElement.disabled = true;
+
+                const slots = wordSlotsContainer.querySelectorAll('.letter-slot');
+                slots[currentLetterIndex].innerText = clickedLetter;
+                slots[currentLetterIndex].classList.add('border-green-400', 'bg-green-50', 'text-green-600');
+                slots[currentLetterIndex].classList.remove('animate-pop');
+                void slots[currentLetterIndex].offsetWidth;
+                slots[currentLetterIndex].classList.add('animate-pop');
+
+                currentLetterIndex++;
+                if (currentLetterIndex === targetWord.length) handleWin();
+            } else {
+                speak('Oops', 1.0, 0.8, true);
+                btnElement.classList.remove('animate-shake');
+                void btnElement.offsetWidth;
+                btnElement.classList.add('animate-shake');
+            }
+        }
+
+        function handleWin() {
+            score++;
+            scoreDisplay.innerText = score;
+            pictureDisplay.classList.add('animate-win');
+
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#f87171', '#fbbf24', '#34d399', '#60a5fa', '#c084fc'],
+            });
+
+            setTimeout(() => speak(`Great job! ${targetWord}!`, 1.0, 1.2, false), 100);
+            setTimeout(loadNewWord, 3500);
+        }
+
+        // Keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (!startScreen.classList.contains('hidden')) {
+                if (e.key === 'Enter') startGame();
+                return;
+            }
+            if (!targetWord || currentLetterIndex >= targetWord.length) return;
+            const typed = e.key.toUpperCase();
+            if (!/^[A-Z]$/.test(typed)) return;
+
+            const buttons = Array.from(letterBankContainer.querySelectorAll('button'));
+            const match = buttons.find(b => b.innerText === typed && !b.disabled);
+            if (match) {
+                handleLetterClick(typed, match);
+            } else {
+                speak('Oops', 1.0, 0.8, true);
+            }
+        });
+
+        // Navbar toggle
+        function toggleNav() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
