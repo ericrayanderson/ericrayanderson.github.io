@@ -46,6 +46,20 @@
         }
         .nav-link:hover { color: #111; }
         .nav-link.active { color: #111; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+        .fullscreen-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: 1px solid #ccc;
+            color: #555;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            flex-shrink: 0;
+            margin-left: 0.75rem;
+        }
+        .fullscreen-btn:hover { border-color: #111; color: #111; }
 
         main {
             flex: 1;
@@ -221,11 +235,17 @@
 
 <nav>
     <a href="../" class="nav-logo">Learning Games</a>
-    <div class="nav-links">
-        <a href="../" class="nav-link">Home</a>
-        <a href="./" class="nav-link active">Spelling</a>
-        <a href="../counting/" class="nav-link">Counting</a>
-        <a href="../addition/" class="nav-link">Addition</a>
+    <div style="display:flex;align-items:center;">
+        <div class="nav-links">
+            <a href="../" class="nav-link">Home</a>
+            <a href="./" class="nav-link active">Spelling</a>
+            <a href="../counting/" class="nav-link">Counting</a>
+            <a href="../addition/" class="nav-link">Addition</a>
+        </div>
+        <button class="fullscreen-btn" id="fs-btn" onclick="toggleFullscreen()" title="Full screen">
+            <svg id="fs-icon-expand" viewBox="0 0 20 20" fill="currentColor" width="15" height="15"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h4a1 1 0 010 2H6.414l2.293 2.293a1 1 0 11-1.414 1.414L5 6.414V8a1 1 0 01-2 0V4zm9 1a1 1 0 010-2h4a1 1 0 011 1v4a1 1 0 01-2 0V6.414l-2.293 2.293a1 1 0 11-1.414-1.414L13.586 5H12zm-9 7a1 1 0 012 0v1.586l2.293-2.293a1 1 0 111.414 1.414L6.414 15H8a1 1 0 010 2H4a1 1 0 01-1-1v-4zm13-1a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 010-2h1.586l-2.293-2.293a1 1 0 111.414-1.414L15 13.586V12a1 1 0 011-1z" clip-rule="evenodd"/></svg>
+            <svg id="fs-icon-compress" viewBox="0 0 20 20" fill="currentColor" width="15" height="15" style="display:none"><path fill-rule="evenodd" d="M5 4a1 1 0 011 1v2.586l2.293-2.293a1 1 0 111.414 1.414L7.414 9H10a1 1 0 010 2H5a1 1 0 01-1-1V5a1 1 0 011-1zm10 0a1 1 0 011 1v4a1 1 0 01-1 1h-5a1 1 0 010-2h2.586l-2.293-2.293a1 1 0 111.414-1.414L14.586 7V5a1 1 0 011-1zM5 11a1 1 0 011 1v2.586l2.293-2.293a1 1 0 111.414 1.414L7.414 16H10a1 1 0 010 2H5a1 1 0 01-1-1v-5a1 1 0 011-1zm10 0a1 1 0 011 1v5a1 1 0 01-1 1h-5a1 1 0 010-2h2.586l-2.293-2.293a1 1 0 111.414-1.414L14.586 13V12a1 1 0 011-1z" clip-rule="evenodd"/></svg>
+        </button>
     </div>
 </nav>
 
@@ -365,6 +385,25 @@
         speak(`${targetWord}. Correct.`, 0.9, 1.0);
         setTimeout(loadWord, 2800);
     }
+
+    function toggleFullscreen() {
+        const el = document.documentElement;
+        const isFs = document.fullscreenElement || document.webkitFullscreenElement;
+        if (isFs) {
+            (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+        } else {
+            (el.requestFullscreen || el.webkitRequestFullscreen).call(el);
+        }
+    }
+
+    function onFullscreenChange() {
+        const isFs = document.fullscreenElement || document.webkitFullscreenElement;
+        document.getElementById('fs-icon-expand').style.display = isFs ? 'none' : '';
+        document.getElementById('fs-icon-compress').style.display = isFs ? '' : 'none';
+    }
+
+    document.addEventListener('fullscreenchange', onFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', onFullscreenChange);
 
     document.addEventListener('keydown', e => {
         const startVisible = !document.getElementById('start-screen').classList.contains('hidden');
