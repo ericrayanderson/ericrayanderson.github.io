@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Spell It! ⭐</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(160deg, #74ebd5 0%, #9face6 100%);
+            font-family: 'Nunito', 'Comic Sans MS', cursive;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            width: 100%;
+            max-width: 620px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 20px 0;
+        }
+
+        .title {
+            font-size: 2rem;
+            font-weight: 900;
+            color: white;
+            text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.15);
+        }
+
+        .stars-display {
+            font-size: 1.4rem;
+            background: rgba(255, 255, 255, 0.35);
+            border-radius: 20px;
+            padding: 6px 16px;
+            color: white;
+            font-weight: 900;
+            text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+        }
+
+        /* Game area */
+        .game-area {
+            width: 100%;
+            max-width: 620px;
+            padding: 10px 16px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+
+        /* Progress dots */
+        .progress {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 400px;
+        }
+
+        .progress-dot {
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.35);
+            transition: background 0.3s;
+        }
+
+        .progress-dot.done {
+            background: #FFD700;
+            box-shadow: 0 0 6px rgba(255, 215, 0, 0.6);
+        }
+
+        .progress-dot.current {
+            background: white;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.4); }
+        }
+
+        /* Emoji card */
+        .emoji-card {
+            background: white;
+            border-radius: 28px;
+            padding: 16px 50px 16px 36px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            text-align: center;
+            position: relative;
+            min-width: 200px;
+        }
+
+        .emoji-display {
+            font-size: 5.5rem;
+            line-height: 1;
+            display: block;
+        }
+
+        .speak-btn {
+            background: #9face6;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(159, 172, 230, 0.5);
+            transition: transform 0.1s, background 0.2s;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .speak-btn:active {
+            transform: scale(0.88);
+        }
+
+        /* Letter boxes */
+        .letter-boxes {
+            display: flex;
+            gap: 14px;
+        }
+
+        .letter-box {
+            width: 88px;
+            height: 88px;
+            border: 4px solid #c8d8f8;
+            border-radius: 20px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 900;
+            color: #555;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.2s;
+            text-transform: uppercase;
+        }
+
+        .letter-box.filled {
+            border-color: #9face6;
+            background: #eef1fb;
+            color: #667eea;
+            transform: scale(1.05);
+        }
+
+        .letter-box.correct {
+            border-color: #51cf66;
+            background: #ebfbee;
+            color: #51cf66;
+            animation: pop 0.35s ease;
+        }
+
+        .letter-box.wrong {
+            border-color: #ff6b6b;
+            background: #fff5f5;
+            animation: shake 0.45s ease;
+        }
+
+        @keyframes pop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.25); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-10px); }
+            40% { transform: translateX(10px); }
+            60% { transform: translateX(-8px); }
+            80% { transform: translateX(5px); }
+        }
+
+        /* Feedback */
+        .feedback {
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: white;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Keyboard */
+        .keyboard {
+            width: 100%;
+            max-width: 620px;
+            padding: 0 6px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .key-row {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .key {
+            min-width: 44px;
+            height: 58px;
+            border: none;
+            border-radius: 14px;
+            font-size: 1.4rem;
+            font-weight: 900;
+            font-family: 'Nunito', cursive;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 0 rgba(0, 0, 0, 0.18);
+            transition: transform 0.08s, box-shadow 0.08s;
+            flex: 1;
+            max-width: 54px;
+            text-transform: uppercase;
+            color: white;
+            text-shadow: 1px 1px 0 rgba(0,0,0,0.15);
+        }
+
+        /* Row colors */
+        .row-1 .key { background: #ff9a9e; }
+        .row-2 .key { background: #ffd93d; color: #555; text-shadow: none; box-shadow: 0 5px 0 rgba(0,0,0,0.12); }
+        .row-3 .key { background: #6bcb77; }
+
+        .key:active, .key.pressed {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.18);
+        }
+
+        .key-backspace {
+            min-width: 66px;
+            max-width: 76px;
+            background: #aaa !important;
+            font-size: 1.2rem;
+        }
+
+        /* Success overlay */
+        .success-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .success-overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .success-card {
+            background: white;
+            border-radius: 30px;
+            padding: 36px 56px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            transform: scale(0.4) rotate(-5deg);
+            transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .success-overlay.show .success-card {
+            transform: scale(1) rotate(0deg);
+        }
+
+        .success-emoji-big {
+            font-size: 4.5rem;
+            display: block;
+        }
+
+        .success-phrase {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #555;
+            margin: 8px 0 4px;
+        }
+
+        .success-word {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #9face6;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+        }
+
+        .tap-continue {
+            font-size: 0.95rem;
+            color: #bbb;
+            margin-top: 12px;
+            font-weight: 700;
+        }
+
+        /* Confetti */
+        .confetti-piece {
+            position: fixed;
+            animation: confettiFall linear forwards;
+            z-index: 101;
+            pointer-events: none;
+        }
+
+        @keyframes confettiFall {
+            0% { transform: translateY(-80px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="title">✏️ Spell It!</div>
+        <div class="stars-display" id="starsDisplay">⭐ 0</div>
+    </div>
+
+    <div class="game-area">
+        <div class="progress" id="progress"></div>
+
+        <div class="emoji-card" id="emojiCard">
+            <button class="speak-btn" id="speakBtn" onclick="speakWord()" title="Hear the word">🔊</button>
+            <span class="emoji-display" id="emojiDisplay">🐱</span>
+        </div>
+
+        <div class="letter-boxes" id="letterBoxes">
+            <div class="letter-box" id="box0"></div>
+            <div class="letter-box" id="box1"></div>
+            <div class="letter-box" id="box2"></div>
+        </div>
+
+        <div class="feedback" id="feedback"></div>
+    </div>
+
+    <div class="keyboard">
+        <div class="key-row row-1">
+            <button class="key" onclick="pressKey('q')">Q</button>
+            <button class="key" onclick="pressKey('w')">W</button>
+            <button class="key" onclick="pressKey('e')">E</button>
+            <button class="key" onclick="pressKey('r')">R</button>
+            <button class="key" onclick="pressKey('t')">T</button>
+            <button class="key" onclick="pressKey('y')">Y</button>
+            <button class="key" onclick="pressKey('u')">U</button>
+            <button class="key" onclick="pressKey('i')">I</button>
+            <button class="key" onclick="pressKey('o')">O</button>
+            <button class="key" onclick="pressKey('p')">P</button>
+        </div>
+        <div class="key-row row-2">
+            <button class="key" onclick="pressKey('a')">A</button>
+            <button class="key" onclick="pressKey('s')">S</button>
+            <button class="key" onclick="pressKey('d')">D</button>
+            <button class="key" onclick="pressKey('f')">F</button>
+            <button class="key" onclick="pressKey('g')">G</button>
+            <button class="key" onclick="pressKey('h')">H</button>
+            <button class="key" onclick="pressKey('j')">J</button>
+            <button class="key" onclick="pressKey('k')">K</button>
+            <button class="key" onclick="pressKey('l')">L</button>
+        </div>
+        <div class="key-row row-3">
+            <button class="key" onclick="pressKey('z')">Z</button>
+            <button class="key" onclick="pressKey('x')">X</button>
+            <button class="key" onclick="pressKey('c')">C</button>
+            <button class="key" onclick="pressKey('v')">V</button>
+            <button class="key" onclick="pressKey('b')">B</button>
+            <button class="key" onclick="pressKey('n')">N</button>
+            <button class="key" onclick="pressKey('m')">M</button>
+            <button class="key key-backspace" onclick="pressBackspace()">⌫</button>
+        </div>
+    </div>
+
+    <!-- Success overlay -->
+    <div class="success-overlay" id="successOverlay" onclick="nextWord()">
+        <div class="success-card">
+            <span class="success-emoji-big" id="successEmojiCard">🎉</span>
+            <div class="success-phrase" id="successPhrase">Amazing!</div>
+            <div class="success-word" id="successWord">CAT</div>
+            <div class="tap-continue">tap anywhere to continue</div>
+        </div>
+    </div>
+
+    <script>
+        const words = [
+            { word: 'cat', emoji: '🐱' },
+            { word: 'dog', emoji: '🐶' },
+            { word: 'sun', emoji: '☀️' },
+            { word: 'hat', emoji: '🎩' },
+            { word: 'cup', emoji: '☕' },
+            { word: 'bus', emoji: '🚌' },
+            { word: 'pig', emoji: '🐷' },
+            { word: 'ant', emoji: '🐜' },
+            { word: 'car', emoji: '🚗' },
+            { word: 'cow', emoji: '🐄' },
+            { word: 'egg', emoji: '🥚' },
+            { word: 'pan', emoji: '🍳' },
+            { word: 'fox', emoji: '🦊' },
+            { word: 'owl', emoji: '🦉' },
+            { word: 'bee', emoji: '🐝' },
+            { word: 'bat', emoji: '🦇' },
+            { word: 'ice', emoji: '🧊' },
+            { word: 'jet', emoji: '✈️' },
+            { word: 'bed', emoji: '🛏️' },
+            { word: 'arm', emoji: '💪' },
+            { word: 'ear', emoji: '👂' },
+            { word: 'eye', emoji: '👁️' },
+            { word: 'map', emoji: '🗺️' },
+            { word: 'nut', emoji: '🥜' },
+            { word: 'box', emoji: '📦' },
+        ];
+
+        const phrases = [
+            '🎉 Amazing!',
+            '🌟 You did it!',
+            '🎊 Great job!',
+            '💫 Awesome!',
+            '🎈 Wow!',
+            '🏆 Perfect!',
+            '⭐ Brilliant!',
+        ];
+
+        let shuffledWords = [];
+        let currentIndex = 0;
+        let currentInput = [];
+        let stars = 0;
+        let isAnimating = false;
+        let advanceTimer = null;
+
+        function shuffle(arr) {
+            const a = [...arr];
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+
+        function init() {
+            shuffledWords = shuffle(words);
+            currentIndex = 0;
+            currentInput = [];
+            stars = 0;
+            updateStarsDisplay();
+            buildProgress();
+            loadWord();
+        }
+
+        function buildProgress() {
+            const prog = document.getElementById('progress');
+            prog.innerHTML = '';
+            shuffledWords.forEach((_, i) => {
+                const dot = document.createElement('div');
+                dot.className = 'progress-dot' + (i === 0 ? ' current' : '');
+                dot.id = 'dot-' + i;
+                prog.appendChild(dot);
+            });
+        }
+
+        function updateProgress() {
+            shuffledWords.forEach((_, i) => {
+                const dot = document.getElementById('dot-' + i);
+                if (!dot) return;
+                if (i < currentIndex) dot.className = 'progress-dot done';
+                else if (i === currentIndex) dot.className = 'progress-dot current';
+                else dot.className = 'progress-dot';
+            });
+        }
+
+        function loadWord() {
+            currentInput = [];
+            isAnimating = false;
+            const word = shuffledWords[currentIndex];
+            document.getElementById('emojiDisplay').textContent = word.emoji;
+            document.getElementById('feedback').textContent = '';
+            clearBoxes();
+            updateProgress();
+            setTimeout(() => speakWord(), 600);
+        }
+
+        function clearBoxes() {
+            for (let i = 0; i < 3; i++) {
+                const box = document.getElementById('box' + i);
+                box.textContent = '';
+                box.className = 'letter-box';
+            }
+        }
+
+        function speakWord() {
+            if (!window.speechSynthesis) return;
+            const word = shuffledWords[currentIndex].word;
+            const utt = new SpeechSynthesisUtterance(word);
+            utt.rate = 0.75;
+            utt.pitch = 1.2;
+            speechSynthesis.cancel();
+            speechSynthesis.speak(utt);
+        }
+
+        function speak(text, rate = 0.85, pitch = 1.2) {
+            if (!window.speechSynthesis) return;
+            const utt = new SpeechSynthesisUtterance(text);
+            utt.rate = rate;
+            utt.pitch = pitch;
+            speechSynthesis.cancel();
+            speechSynthesis.speak(utt);
+        }
+
+        function pressKey(letter) {
+            if (isAnimating) return;
+            if (currentInput.length >= 3) return;
+
+            currentInput.push(letter.toLowerCase());
+            const idx = currentInput.length - 1;
+            const box = document.getElementById('box' + idx);
+            box.textContent = letter.toUpperCase();
+            box.className = 'letter-box filled';
+
+            // Visual key press feedback
+            document.querySelectorAll('.key').forEach(k => {
+                if (k.textContent.trim().toLowerCase() === letter.toLowerCase()) {
+                    k.classList.add('pressed');
+                    setTimeout(() => k.classList.remove('pressed'), 150);
+                }
+            });
+
+            if (currentInput.length === 3) {
+                checkWord();
+            }
+        }
+
+        function pressBackspace() {
+            if (isAnimating) return;
+            if (currentInput.length === 0) return;
+            const idx = currentInput.length - 1;
+            currentInput.pop();
+            const box = document.getElementById('box' + idx);
+            box.textContent = '';
+            box.className = 'letter-box';
+        }
+
+        function checkWord() {
+            const word = shuffledWords[currentIndex].word;
+            const typed = currentInput.join('').toLowerCase();
+
+            if (typed === word) {
+                isAnimating = true;
+                for (let i = 0; i < 3; i++) {
+                    setTimeout(() => {
+                        document.getElementById('box' + i).className = 'letter-box correct';
+                    }, i * 120);
+                }
+                stars++;
+                updateStarsDisplay();
+                setTimeout(() => showSuccess(), 700);
+            } else {
+                for (let i = 0; i < 3; i++) {
+                    document.getElementById('box' + i).className = 'letter-box wrong';
+                }
+                speak('Try again!', 0.9, 1.2);
+                document.getElementById('feedback').textContent = 'Try again! 🤔';
+                setTimeout(() => {
+                    currentInput = [];
+                    clearBoxes();
+                    document.getElementById('feedback').textContent = '';
+                }, 1100);
+            }
+        }
+
+        function updateStarsDisplay() {
+            document.getElementById('starsDisplay').textContent = '⭐ ' + stars;
+        }
+
+        function showSuccess() {
+            const entry = shuffledWords[currentIndex];
+            document.getElementById('successWord').textContent = entry.word.toUpperCase();
+            document.getElementById('successEmojiCard').textContent = entry.emoji;
+            document.getElementById('successPhrase').textContent = phrases[Math.floor(Math.random() * phrases.length)];
+
+            document.getElementById('successOverlay').classList.add('show');
+            speak(entry.word, 0.65, 1.3);
+            launchConfetti();
+
+            advanceTimer = setTimeout(() => nextWord(), 3200);
+        }
+
+        function nextWord() {
+            clearTimeout(advanceTimer);
+            document.getElementById('successOverlay').classList.remove('show');
+            isAnimating = false;
+
+            currentIndex++;
+            if (currentIndex >= shuffledWords.length) {
+                shuffledWords = shuffle(words);
+                currentIndex = 0;
+                buildProgress();
+            }
+            loadWord();
+        }
+
+        function launchConfetti() {
+            const colors = ['#ff6b6b', '#ffd93d', '#6bcb77', '#74c0fc', '#ff922b', '#cc5de8', '#f783ac'];
+            for (let i = 0; i < 60; i++) {
+                setTimeout(() => {
+                    const piece = document.createElement('div');
+                    piece.className = 'confetti-piece';
+                    const size = Math.random() * 12 + 7;
+                    piece.style.cssText = `
+                        left: ${Math.random() * 100}vw;
+                        top: -20px;
+                        width: ${size}px;
+                        height: ${size}px;
+                        background: ${colors[Math.floor(Math.random() * colors.length)]};
+                        border-radius: ${Math.random() > 0.5 ? '50%' : '3px'};
+                        animation-duration: ${Math.random() * 2 + 1.8}s;
+                        animation-delay: 0s;
+                    `;
+                    document.body.appendChild(piece);
+                    setTimeout(() => piece.remove(), 4000);
+                }, i * 35);
+            }
+        }
+
+        // Physical keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Backspace') {
+                e.preventDefault();
+                pressBackspace();
+            } else if (e.key.length === 1 && /[a-zA-Z]/.test(e.key)) {
+                pressKey(e.key.toLowerCase());
+            }
+        });
+
+        init();
+    </script>
+</body>
+</html>
