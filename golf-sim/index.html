@@ -11,189 +11,292 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #fff;
+            background: #fafafa;
             color: #111;
-            line-height: 1.6;
+            line-height: 1.55;
             min-height: 100vh;
+            font-size: 17px;
         }
 
         a { color: #0b5fff; text-decoration: none; }
         a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
         nav {
-            border-bottom: 1px solid #ddd;
+            background: #fff;
+            border-bottom: 1px solid #e8e8e8;
             padding: 0 1.5rem;
-            height: 52px;
+            height: 56px;
             display: flex;
             align-items: center;
         }
         .nav-logo {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 700;
             color: #111;
             text-decoration: none;
         }
 
         main {
-            max-width: 820px;
+            max-width: 1080px;
             margin: 0 auto;
-            padding: 2.5rem 1.5rem 4rem;
+            padding: 3rem 1.5rem 5rem;
         }
 
-        h1 {
+        .intro {
+            max-width: 640px;
+            margin-bottom: 2.75rem;
+        }
+        .intro h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+            margin-bottom: 0.85rem;
+        }
+        .intro .lede {
+            font-size: 1.15rem;
+            color: #444;
+            margin-bottom: 1.35rem;
+        }
+        .facts {
+            display: grid;
+            gap: 0.65rem;
+            font-size: 1rem;
+            color: #333;
+        }
+        .facts div {
+            display: flex;
+            gap: 0.65rem;
+            align-items: baseline;
+        }
+        .facts .label {
+            font-weight: 600;
+            min-width: 5.5rem;
+            color: #111;
+        }
+        .facts .value { color: #555; }
+
+        h2 {
+            font-size: 1.45rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin: 3.25rem 0 1.15rem;
+        }
+
+        .setups {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        @media (min-width: 860px) {
+            .setups { grid-template-columns: 1fr 1fr; gap: 1.75rem; }
+        }
+
+        .setup {
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        }
+        .setup-render {
+            position: relative;
+            background: #eee;
+        }
+        .setup-render img {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+        }
+        .render-badge {
+            position: absolute;
+            left: 0.85rem;
+            bottom: 0.85rem;
+            background: rgba(255,255,255,0.92);
+            color: #444;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.35rem 0.55rem;
+            border-radius: 6px;
+            letter-spacing: 0.01em;
+        }
+        .setup-body {
+            padding: 1.5rem 1.4rem 1.6rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.15rem;
+            flex: 1;
+        }
+        .setup-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+        }
+        .setup-sub {
+            font-size: 0.95rem;
+            color: #666;
+            margin-top: 0.2rem;
+        }
+        .price-block {
+            padding: 0.9rem 0;
+            border-top: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .price-big {
             font-size: 2rem;
             font-weight: 800;
             letter-spacing: -0.03em;
-            line-height: 1.15;
-            margin-bottom: 0.75rem;
+            line-height: 1.1;
         }
-
-        h2 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin: 2.25rem 0 0.85rem;
-            letter-spacing: -0.02em;
-        }
-
-        .lede {
-            color: #555;
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem 1rem;
-            font-size: 0.85rem;
-            color: #555;
-            margin-bottom: 2rem;
-            padding: 0.85rem 1rem;
-            background: #f7f7f7;
-            border-radius: 8px;
-        }
-        .meta strong { color: #111; font-weight: 600; }
-
-        .section-note {
-            color: #555;
+        .price-soft {
             font-size: 0.95rem;
-            margin-bottom: 1rem;
+            color: #666;
+            margin-top: 0.35rem;
         }
 
-        #renderings {
-            min-height: 0;
-        }
-        #renderings .renders-grid {
+        .pc {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.85rem 1rem;
         }
-        #renderings img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            border: 1px solid #eee;
-            display: block;
-        }
-
-        figure {
-            margin: 0 0 0.5rem;
-        }
-        figure img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            border: 1px solid #eee;
-            display: block;
-        }
-        figcaption {
-            font-size: 0.88rem;
-            color: #555;
-            margin-top: 0.75rem;
-            line-height: 1.55;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-        }
-        @media (min-width: 640px) {
-            .cards { grid-template-columns: 1fr 1fr; }
-        }
-
-        .card {
-            border: 1px solid #e5e5e5;
-            border-radius: 10px;
-            padding: 1.15rem 1.25rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.65rem;
-        }
-        .card h3 {
-            font-size: 1rem;
+        .pc h4 {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #888;
+            margin-bottom: 0.45rem;
             font-weight: 700;
-            letter-spacing: -0.01em;
         }
-        .card .total {
-            font-size: 0.9rem;
+        .pc ul { list-style: none; font-size: 0.92rem; }
+        .pc li {
+            padding: 0.28rem 0 0.28rem 1.35rem;
+            position: relative;
+            color: #333;
+            line-height: 1.4;
+        }
+        .pc .pros li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #1a7f37;
+            font-weight: 700;
+        }
+        .pc .cons li::before {
+            content: "×";
+            position: absolute;
+            left: 0;
+            color: #c62828;
+            font-weight: 700;
+            font-size: 1.05rem;
+            line-height: 1.2;
+        }
+
+        .parts {
+            list-style: none;
+            font-size: 0.92rem;
+            margin-top: auto;
+        }
+        .parts li {
+            padding: 0.55rem 0;
+            border-top: 1px solid #f2f2f2;
+            display: flex;
+            justify-content: space-between;
+            gap: 0.75rem;
+            align-items: baseline;
+        }
+        .parts .amt {
             font-weight: 600;
+            white-space: nowrap;
             color: #111;
         }
-        .card ul {
-            list-style: none;
-            font-size: 0.88rem;
-            color: #333;
-        }
-        .card li {
-            padding: 0.4rem 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        .card li:last-child { border-bottom: none; }
-        .card .soft {
+        .parts .note {
             font-size: 0.85rem;
-            color: #555;
-            margin-top: 0.25rem;
+            color: #666;
+            padding-top: 0.35rem;
+            border-top: 1px solid #f2f2f2;
+            line-height: 1.45;
+        }
+
+        .layout-block {
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 16px;
+            padding: 1.35rem;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        }
+        .layout-block img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+            border: 1px solid #eee;
+        }
+        .layout-block figcaption {
+            margin-top: 1rem;
+            font-size: 0.98rem;
+            color: #444;
+            line-height: 1.55;
+        }
+        .layout-block figcaption strong { color: #111; }
+
+        .simple {
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 16px;
+            padding: 1.4rem 1.5rem;
+            font-size: 1.02rem;
+            color: #333;
+            line-height: 1.6;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
         }
 
         .checklist {
             list-style: none;
-            font-size: 0.92rem;
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
         }
         .checklist li {
-            padding: 0.55rem 0 0.55rem 1.5rem;
+            padding: 1rem 1.25rem 1rem 2.75rem;
             position: relative;
             border-bottom: 1px solid #f0f0f0;
+            font-size: 1.02rem;
             color: #333;
+            line-height: 1.5;
         }
+        .checklist li:last-child { border-bottom: none; }
         .checklist li::before {
             content: "";
             position: absolute;
-            left: 0;
-            top: 0.85rem;
-            width: 0.7rem;
-            height: 0.7rem;
-            border: 1.5px solid #bbb;
-            border-radius: 3px;
-        }
-
-        .alt {
-            font-size: 0.92rem;
-            color: #333;
-            margin-top: 0.5rem;
+            left: 1.15rem;
+            top: 1.2rem;
+            width: 0.9rem;
+            height: 0.9rem;
+            border: 1.75px solid #bbb;
+            border-radius: 4px;
+            background: #fff;
         }
 
         footer {
-            margin-top: 3rem;
+            margin-top: 3.5rem;
             padding-top: 1.25rem;
-            border-top: 1px solid #eee;
-            font-size: 0.8rem;
+            border-top: 1px solid #e8e8e8;
+            font-size: 0.85rem;
             color: #888;
         }
 
-        @media (max-width: 480px) {
-            h1 { font-size: 1.6rem; }
-            main { padding: 1.75rem 1.15rem 3rem; }
+        @media (max-width: 540px) {
+            .intro h1 { font-size: 1.85rem; }
+            .price-big { font-size: 1.7rem; }
+            .pc { grid-template-columns: 1fr; }
+            main { padding: 2rem 1.1rem 4rem; }
         }
     </style>
 </head>
@@ -202,62 +305,114 @@
         <a class="nav-logo" href="/">Eric Anderson</a>
     </nav>
     <main>
-        <h1>Basement Golf Simulator Plan</h1>
-        <p class="lede">A home setup for a 12 ft by 14 ft basement bay with a 9.5 ft ceiling, aimed at about $2,000.</p>
+        <header class="intro">
+            <h1>Basement Golf Simulator Plan</h1>
+            <p class="lede">Two build options for a small basement bay, both aimed at about $2,000.</p>
+            <div class="facts">
+                <div><span class="label">Room</span><span class="value">12 ft wide &times; 14 ft deep &times; 9.5 ft ceiling</span></div>
+                <div><span class="label">Ceiling</span><span class="value">Exposed joists and insulation; measure from the lowest point</span></div>
+                <div><span class="label">Budget</span><span class="value">About $2,000</span></div>
+            </div>
+        </header>
 
-        <div class="meta">
-            <span><strong>Room</strong> 12 ft wide &times; 14 ft deep &times; 9.5 ft ceiling</span>
-            <span><strong>Ceiling</strong> Exposed joists and insulation; measure from the lowest point</span>
-            <span><strong>Budget</strong> About $2,000</span>
+        <h2>Choose a setup</h2>
+        <div class="setups">
+            <article class="setup">
+                <div class="setup-render">
+                    <img src="render_a.jpg" alt="Concept rendering of Setup A with Square Golf HE in the unfinished basement bay">
+                    <span class="render-badge">Concept rendering, not exact</span>
+                </div>
+                <div class="setup-body">
+                    <div>
+                        <h3 class="setup-title">Setup A</h3>
+                        <p class="setup-sub">Righty only, Square Golf HE</p>
+                    </div>
+                    <div class="price-block">
+                        <div class="price-big">~$1,600</div>
+                        <p class="price-soft">Software included with Square; optional GSPro $250/yr</p>
+                    </div>
+                    <div class="pc">
+                        <div class="pros">
+                            <h4>Pros</h4>
+                            <ul>
+                                <li>Fits the 14 ft depth comfortably</li>
+                                <li>No required subscription</li>
+                                <li>Strong club data</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>Cons</h4>
+                            <ul>
+                                <li>Must be moved for a lefty</li>
+                                <li>Pricier monitor</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="parts">
+                        <li><a href="https://squaregolf.com/pages/shop">Square Golf HE</a><span class="amt">$699</span></li>
+                        <li><a href="https://www.amazon.com/GoSports-Range-Cage-Practice-Hitting/dp/B0CQPMLDTS">GoSports Range Cage 10&times;8 with screen</a><span class="amt">$299.99</span></li>
+                        <li><a href="https://www.amazon.com/Real-Feel-Golf-Mats-Commercial/dp/B0048GP25U">Country Club Elite 5&times;5 mat</a><span class="amt">$599</span></li>
+                        <li class="note">Alternative monitor: <a href="https://www.skytrakgolf.com/products/skytrak-launch-monitor">SkyTrak original</a> $695 (about $300/yr for course play). Optional <a href="https://gsprogolf.com/pricing">GSPro</a> $250/yr.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="setup">
+                <div class="setup-render">
+                    <img src="render_b.jpg" alt="Concept rendering of Setup B with Garmin R10 for lefty and righty golfers">
+                    <span class="render-badge">Concept rendering, not exact</span>
+                </div>
+                <div class="setup-body">
+                    <div>
+                        <h3 class="setup-title">Setup B</h3>
+                        <p class="setup-sub">Lefty + righty, Garmin R10</p>
+                    </div>
+                    <div class="price-block">
+                        <div class="price-big">~$1,400&ndash;$1,450</div>
+                        <p class="price-soft">Garmin Golf software $99.99/yr</p>
+                    </div>
+                    <div class="pc">
+                        <div class="pros">
+                            <h4>Pros</h4>
+                            <ul>
+                                <li>Works for lefties and righties without moving</li>
+                                <li>Cheapest build</li>
+                                <li>43k+ courses for $99.99/yr</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>Cons</h4>
+                            <ul>
+                                <li>Needs 6&ndash;8 ft behind the ball, so it is tight in this room</li>
+                                <li>Yearly subscription</li>
+                                <li>Spin is less precise indoors</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="parts">
+                        <li><a href="https://www.pgatoursuperstore.com/approach-r10-portable-launch-monitor/1136623.html">Garmin Approach R10</a><span class="amt">$499.99</span></li>
+                        <li><a href="https://www.amazon.com/GoSports-Range-Cage-Practice-Hitting/dp/B0CQPMLDTS">GoSports Range Cage 10&times;8 with screen</a><span class="amt">$299.99</span></li>
+                        <li><a href="https://www.amazon.com/Real-Feel-Golf-Mats-Commercial/dp/B0048GP25U">Country Club Elite 5&times;5 mat</a><span class="amt">$599</span></li>
+                    </ul>
+                </div>
+            </article>
         </div>
 
-        <section id="renderings" aria-label="Renderings">
-            <h2>Renderings</h2>
-            <p class="section-note">Room mockups will go here once they are ready.</p>
-            <div class="renders-grid"></div>
-        </section>
-
-        <h2>Layout</h2>
-        <figure>
-            <img src="golf_sim_layout.png" alt="Top-down scaled layout showing righty-only and lefty-and-righty golf simulator placements in a 12 by 14 foot room">
+        <h2>To-scale layout</h2>
+        <figure class="layout-block">
+            <img src="golf_sim_layout.png" alt="Top-down scaled layout comparing Setup A righty-only and Setup B lefty-and-righty placements in a 12 by 14 foot room">
             <figcaption>
                 <strong>Panel A (righty only):</strong> Square Golf HE beside the ball, tee about 9 ft from the screen, about 5 ft free behind the golfer.
-                <br>
+                <br><br>
                 <strong>Panel B (lefty and righty):</strong> Centered mat, tee about 8 ft from the screen, Garmin R10 about 6 ft behind the ball. This layout is tight against the front wall.
             </figcaption>
         </figure>
 
-        <h2>Build options</h2>
-        <div class="cards">
-            <article class="card">
-                <h3>Option A &mdash; righty only</h3>
-                <p class="total">About $1,600</p>
-                <ul>
-                    <li><a href="https://squaregolf.com/pages/shop">Square Golf HE</a> &mdash; $699</li>
-                    <li><a href="https://www.amazon.com/GoSports-Range-Cage-Practice-Hitting/dp/B0CQPMLDTS">GoSports Range Cage 10&times;8 with simulator screen</a> &mdash; $299.99</li>
-                    <li><a href="https://www.amazon.com/Real-Feel-Golf-Mats-Commercial/dp/B0048GP25U">Real Feel Country Club Elite 5&times;5 mat</a> &mdash; $599</li>
-                </ul>
-                <p class="soft">Software: Square courses included. Optional <a href="https://gsprogolf.com/pricing">GSPro</a> $250/yr.</p>
-                <p class="soft">Alternative monitor: <a href="https://www.skytrakgolf.com/products/skytrak-launch-monitor">SkyTrak original</a> $695 (about $300/yr for course play).</p>
-            </article>
-
-            <article class="card">
-                <h3>Option B &mdash; lefty and righty</h3>
-                <p class="total">About $1,400&ndash;$1,450</p>
-                <ul>
-                    <li><a href="https://www.pgatoursuperstore.com/approach-r10-portable-launch-monitor/1136623.html">Garmin Approach R10</a> &mdash; $499.99</li>
-                    <li><a href="https://www.amazon.com/GoSports-Range-Cage-Practice-Hitting/dp/B0CQPMLDTS">GoSports Range Cage 10&times;8 with simulator screen</a> &mdash; $299.99</li>
-                    <li><a href="https://www.amazon.com/Real-Feel-Golf-Mats-Commercial/dp/B0048GP25U">Real Feel Country Club Elite 5&times;5 mat</a> &mdash; $599</li>
-                </ul>
-                <p class="soft">Software: Garmin Golf $99.99/yr.</p>
-            </article>
-        </div>
-
         <h2>Budget mat swap</h2>
-        <p class="alt">Swap the Country Club Elite for a <a href="https://www.amazon.com/Golfguru-Practice-Artificial-Training-Simulators/dp/B0D21X72GS">Golfguru 5&times;5 mat</a> at $159.99 to free up budget for a better display later.</p>
+        <p class="simple">Swap the Country Club Elite for a <a href="https://www.amazon.com/Golfguru-Practice-Artificial-Training-Simulators/dp/B0D21X72GS">Golfguru 5&times;5 mat</a> at $159.99 to free up budget for a better display later.</p>
 
         <h2>Display</h2>
-        <p class="alt">Use a tablet or cast to a TV for now. A short-throw projector like the BenQ TH671ST (about $850&ndash;$950 new) fits the room but is a later upgrade.</p>
+        <p class="simple">Use a tablet or cast to a TV for now. A short-throw projector like the BenQ TH671ST (about $850&ndash;$950 new) fits the room but is a later upgrade.</p>
 
         <h2>Room prep checklist</h2>
         <ul class="checklist">
