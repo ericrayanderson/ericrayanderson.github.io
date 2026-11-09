@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basement Golf Simulator Plan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fff;
+            color: #111;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        a { color: #0b5fff; text-decoration: none; }
+        a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+        nav {
+            border-bottom: 1px solid #ddd;
+            padding: 0 1.5rem;
+            height: 52px;
+            display: flex;
+            align-items: center;
+        }
+        .nav-logo {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #111;
+            text-decoration: none;
+        }
+
+        main {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 0.75rem;
+        }
+
+        h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin: 2.25rem 0 0.85rem;
+            letter-spacing: -0.02em;
+        }
+
+        .lede {
+            color: #555;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            font-size: 0.85rem;
+            color: #555;
+            margin-bottom: 2rem;
+            padding: 0.85rem 1rem;
+            background: #f7f7f7;
+            border-radius: 8px;
+        }
+        .meta strong { color: #111; font-weight: 600; }
+
+        .section-note {
+            color: #555;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        #renderings {
+            min-height: 0;
+        }
+        #renderings .renders-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        #renderings img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            display: block;
+        }
+
+        figure {
+            margin: 0 0 0.5rem;
+        }
+        figure img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            display: block;
+        }
+        figcaption {
+            font-size: 0.88rem;
+            color: #555;
+            margin-top: 0.75rem;
+            line-height: 1.55;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        @media (min-width: 640px) {
+            .cards { grid-template-columns: 1fr 1fr; }
+        }
+
+        .card {
+            border: 1px solid #e5e5e5;
+            border-radius: 10px;
+            padding: 1.15rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+        .card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+        .card .total {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #111;
+        }
+        .card ul {
+            list-style: none;
+            font-size: 0.88rem;
+            color: #333;
+        }
+        .card li {
+            padding: 0.4rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .card li:last-child { border-bottom: none; }
+        .card .soft {
+            font-size: 0.85rem;
+            color: #555;
+            margin-top: 0.25rem;
+        }
+
+        .checklist {
+            list-style: none;
+            font-size: 0.92rem;
+        }
+        .checklist li {
+            padding: 0.55rem 0 0.55rem 1.5rem;
+            position: relative;
+            border-bottom: 1px solid #f0f0f0;
+            color: #333;
+        }
+        .checklist li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.85rem;
+            width: 0.7rem;
+            height: 0.7rem;
+            border: 1.5px solid #bbb;
+            border-radius: 3px;
+        }
+
+        .alt {
+            font-size: 0.92rem;
+            color: #333;
+            margin-top: 0.5rem;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid #eee;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 1.6rem; }
+            main { padding: 1.75rem 1.15rem 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a class="nav-logo" href="/">Eric Anderson</a>
+    </nav>
+    <main>
+        <h1>Basement Golf Simulator Plan</h1>
+        <p class="lede">A home setup for a 12 ft by 14 ft basement bay with a 9.5 ft ceiling, aimed at about $2,000.</p>
+
+        <div class="meta">
+            <span><strong>Room</strong> 12 ft wide &times; 14 ft deep &times; 9.5 ft ceiling</span>
+            <span><strong>Ceiling</strong> Exposed joists and insulation; measure from the lowest point</span>
+            <span><strong>Budget</strong> About $2,000</span>
+        </div>
+
+        <section id="renderings" aria-label="Renderings">
+            <h2>Renderings</h2>
+            <p class="section-note">Room mockups will go here once they are ready.</p>
+            <div class="renders-grid"></div>
+        </section>
+
+        <h2>Layout</h2>
+        <figure>
+            <img src="golf_sim_layout.png" alt="Top-down scaled layout showing righty-only and lefty-and-righty golf simulator placements in a 12 by 14 foot room">
+            <figcaption>
+                <strong>Panel A (righty only):</strong> Square Golf HE beside the ball, tee about 9 ft from the screen, about 5 ft free behind the golfer.
+                <br>
+                <strong>Panel B (lefty and righty):</strong> Centered mat, tee about 8 ft from the screen, Garmin R10 about 6 ft behind the ball. This layout is tight against the front wall.
+            </figcaption>
+        </figure>
+
+        <h2>Build options</h2>
+        <div class="cards">
+            <article class="card">
+                <h3>Option A &mdash; righty only</h3>
+                <p class="total">About $1,600</p>
+                <ul>
+                    <li><a href="https://squaregolf.com/pages/shop">Square Golf HE</a> &mdash; $699</li>
+                    <li><a href="https://www.amazon.com/GoSports-Range-Cage-Practice-Hitting/dp/B0CQPMLDTS">GoSports Range Cage 10&times;8 with simulator screen</a> &mdash; $299.99</li>
+                    <li><a href="https://www.amazon.com/Real-Feel-Golf-Mats-Commercial/dp/B0048GP25U">Real Feel Country Club Elite 5&times;5 mat</a> &mdash; $599</li>
+                </ul>
+                <p class="soft">Software: Square courses included. Optional <a href="https://gsprogolf.com/pricing">GSPro</a> $250/yr.</p>
+                <p class="soft">Alternative monitor: <a href="https://www.skytrakgolf.com/products/skytrak-launch-monitor">SkyTrak original</a> $695 (about $300/yr for course play).</p>
+            </article>
+
+            <article class="card">
+                <h3>Option B &mdash; lefty and righty</h3>
+                <p class="total">About $1,400&ndash;$1,450</p>
+                <ul>
+                    <li><a href="https://www.pgatoursuperstore.com/approach-r10-portable-launch-monitor/1136623.html">Garmin Approach R10</a> &mdash; $499.99</li>
+                    <li><a href="https://www.amazon.com/GoSports-Range-Cage-Practice-Hitting/dp/B0CQPMLDTS">GoSports Range Cage 10&times;8 with simulator screen</a> &mdash; $299.99</li>
+                    <li><a href="https://www.amazon.com/Real-Feel-Golf-Mats-Commercial/dp/B0048GP25U">Real Feel Country Club Elite 5&times;5 mat</a> &mdash; $599</li>
+                </ul>
+                <p class="soft">Software: Garmin Golf $99.99/yr.</p>
+            </article>
+        </div>
+
+        <h2>Budget mat swap</h2>
+        <p class="alt">Swap the Country Club Elite for a <a href="https://www.amazon.com/Golfguru-Practice-Artificial-Training-Simulators/dp/B0D21X72GS">Golfguru 5&times;5 mat</a> at $159.99 to free up budget for a better display later.</p>
+
+        <h2>Display</h2>
+        <p class="alt">Use a tablet or cast to a TV for now. A short-throw projector like the BenQ TH671ST (about $850&ndash;$950 new) fits the room but is a later upgrade.</p>
+
+        <h2>Room prep checklist</h2>
+        <ul class="checklist">
+            <li>Remove the lumber rack and clear the back wall for the screen</li>
+            <li>Pad the drain pipe in the back-right corner, or keep it outside the cage</li>
+            <li>Relocate the hanging cord on the left wall</li>
+            <li>Cover the ceiling above the hitting area with netting, plywood, or drywall</li>
+            <li>Tape out tee and mat spots and take slow driver test swings (tall players up to 6&prime;6&Prime; may be limited to irons at 9.5 ft)</li>
+        </ul>
+
+        <footer>Prices checked Nov 9, 2026.</footer>
+    </main>
+</body>
+</html>
