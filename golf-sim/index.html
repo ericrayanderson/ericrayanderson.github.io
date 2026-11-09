@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basement Golf Simulator Plan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f7f7f5;
+            color: #111;
+            line-height: 1.55;
+            min-height: 100vh;
+            font-size: 17px;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        a { color: #0b5fff; text-decoration: none; }
+        a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+        nav {
+            background: #fff;
+            border-bottom: 1px solid #e8e8e8;
+            padding: 0 1.25rem;
+            min-height: 56px;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .nav-logo {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #111;
+            text-decoration: none;
+            padding: 0.75rem 0;
+        }
+
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 1.75rem 1.15rem 4.5rem;
+        }
+
+        .intro { margin-bottom: 1.75rem; }
+        .intro h1 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.12;
+            margin-bottom: 0.7rem;
+        }
+        .intro .lede {
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 1.15rem;
+        }
+
+        .facts {
+            display: grid;
+            gap: 0.55rem;
+            font-size: 1rem;
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 14px;
+            padding: 1rem 1.1rem;
+        }
+        .facts > div {
+            display: grid;
+            grid-template-columns: 5.25rem 1fr;
+            gap: 0.5rem;
+            align-items: start;
+        }
+        .facts .label { font-weight: 700; color: #111; }
+        .facts .value { color: #555; }
+
+        .callout {
+            margin-top: 1rem;
+            background: #fff8e8;
+            border: 1px solid #f0d9a0;
+            border-radius: 14px;
+            padding: 1.1rem 1.15rem;
+        }
+        .callout h2 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin: 0 0 0.55rem;
+            color: #111;
+        }
+        .callout p {
+            font-size: 1rem;
+            color: #444;
+            margin: 0 0 0.55rem;
+            line-height: 1.5;
+        }
+        .callout p:last-child { margin-bottom: 0; }
+        .callout .estimate {
+            font-size: 0.9rem;
+            color: #7a6540;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin: 2.5rem 0 1rem;
+        }
+
+        .compare {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.65rem;
+            margin-bottom: 1.15rem;
+        }
+        .compare-card {
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 12px;
+            padding: 0.85rem 0.9rem;
+        }
+        .compare-card .name {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #888;
+            margin-bottom: 0.55rem;
+        }
+        .compare-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0.5rem;
+            font-size: 0.92rem;
+            padding: 0.28rem 0;
+            border-top: 1px solid #f2f2f2;
+        }
+        .compare-row:first-of-type { border-top: none; }
+        .compare-row .k { color: #777; }
+        .compare-row .v { font-weight: 600; color: #111; text-align: right; }
+
+        .setups {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+
+        .setup {
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        }
+        .setup-render {
+            position: relative;
+            background: #eee;
+        }
+        .setup-render img {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+        }
+        .render-badge {
+            position: absolute;
+            left: 0.75rem;
+            bottom: 0.75rem;
+            background: rgba(255,255,255,0.94);
+            color: #444;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.4rem 0.6rem;
+            border-radius: 6px;
+        }
+        .setup-body {
+            padding: 1.25rem 1.15rem 1.35rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            flex: 1;
+        }
+        .setup-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+        .setup-sub {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 0.2rem;
+        }
+        .price-block {
+            padding: 0.85rem 0;
+            border-top: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .price-big {
+            font-size: 1.85rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+        .price-soft {
+            font-size: 0.98rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+
+        .pc {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.85rem;
+        }
+        .pc h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #888;
+            margin-bottom: 0.4rem;
+            font-weight: 700;
+        }
+        .pc ul { list-style: none; font-size: 1rem; }
+        .pc li {
+            padding: 0.35rem 0 0.35rem 1.4rem;
+            position: relative;
+            color: #333;
+            line-height: 1.4;
+        }
+        .pc .pros li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #1a7f37;
+            font-weight: 700;
+        }
+        .pc .cons li::before {
+            content: "×";
+            position: absolute;
+            left: 0;
+            color: #c62828;
+            font-weight: 700;
+            font-size: 1.1rem;
+            line-height: 1.15;
+        }
+
+        .parts {
+            list-style: none;
+            font-size: 1rem;
+            margin-top: auto;
+        }
+        .parts li {
+            padding: 0.7rem 0;
+            border-top: 1px solid #f2f2f2;
+            display: flex;
+            justify-content: space-between;
+            gap: 0.75rem;
+            align-items: baseline;
+            min-height: 44px;
+        }
+        .parts a {
+            padding: 0.15rem 0;
+            display: inline-block;
+        }
+        .parts .amt {
+            font-weight: 700;
+            white-space: nowrap;
+            color: #111;
+        }
+        .parts .note {
+            display: block;
+            font-size: 0.92rem;
+            color: #666;
+            padding-top: 0.55rem;
+            border-top: 1px solid #f2f2f2;
+            line-height: 1.45;
+        }
+
+        .layout-block {
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 16px;
+            padding: 1rem;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        }
+        .layout-block a.layout-link {
+            display: block;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            line-height: 0;
+        }
+        .layout-block a.layout-link:hover {
+            outline: 2px solid #0b5fff;
+            outline-offset: 2px;
+            text-decoration: none;
+        }
+        .layout-block img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .layout-block figcaption {
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.55;
+        }
+        .layout-block figcaption strong { color: #111; }
+        .layout-hint {
+            display: block;
+            margin-top: 0.55rem;
+            font-size: 0.88rem;
+            color: #888;
+        }
+
+        .simple {
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 16px;
+            padding: 1.2rem 1.25rem;
+            font-size: 1.05rem;
+            color: #333;
+            line-height: 1.6;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        }
+
+        .checklist {
+            list-style: none;
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        }
+        .checklist li {
+            padding: 1.05rem 1.15rem 1.05rem 2.85rem;
+            position: relative;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 1.05rem;
+            color: #333;
+            line-height: 1.5;
+            min-height: 48px;
+        }
+        .checklist li:last-child { border-bottom: none; }
+        .checklist li::before {
+            content: "";
+            position: absolute;
+            left: 1.15rem;
+            top: 1.25rem;
+            width: 1rem;
+            height: 1rem;
+            border: 1.75px solid #bbb;
+            border-radius: 4px;
+            background: #fff;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.15rem;
+            border-top: 1px solid #e8e8e8;
+            font-size: 0.88rem;
+            color: #888;
+        }
+
+        /* Larger phones / small tablets */
+        @media (min-width: 540px) {
+            .intro h1 { font-size: 2.15rem; }
+            .pc { grid-template-columns: 1fr 1fr; gap: 0.85rem 1rem; }
+            body { font-size: 18px; }
+        }
+
+        /* Desktop */
+        @media (min-width: 1000px) {
+            main {
+                max-width: 1200px;
+                padding: 2.75rem 2rem 5rem;
+            }
+            .intro {
+                max-width: 720px;
+                margin-bottom: 2rem;
+            }
+            .intro h1 { font-size: 2.55rem; }
+            .intro .lede { font-size: 1.2rem; }
+
+            .top-grid {
+                display: grid;
+                grid-template-columns: 1.15fr 1fr;
+                gap: 1.15rem;
+                align-items: stretch;
+                margin-bottom: 0.25rem;
+            }
+            .facts, .callout { margin: 0; height: 100%; }
+
+            .compare {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+                margin-bottom: 1.35rem;
+            }
+            .compare-card { padding: 1rem 1.15rem; }
+            .compare-row { font-size: 0.98rem; }
+
+            .setups {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+                align-items: stretch;
+            }
+            .setup { height: 100%; }
+            .setup-body { padding: 1.4rem 1.35rem 1.5rem; }
+            .price-big { font-size: 2.1rem; }
+
+            .layout-block { padding: 1.35rem; }
+            .section-title { margin-top: 3rem; font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a class="nav-logo" href="/">Eric Anderson</a>
+    </nav>
+    <main>
+        <header class="intro">
+            <h1>Basement Golf Simulator Plan</h1>
+            <p class="lede">Two build options for a small basement bay, both aimed at about $2,000.</p>
+        </header>
+
+        <div class="top-grid">
+            <div class="facts">
+                <div><span class="label">Room</span><span class="value">12 ft wide &times; 14 ft deep &times; 9.5 ft ceiling</span></div>
+                <div><span class="label">Ceiling</span><span class="value">Exposed joists and insulation; measure from the lowest point</span></div>
+                <div><span class="label">Budget</span><span class="value">About $2,000</span></div>
+            </div>
+            <aside class="callout" aria-label="Who can swing a driver here">
+                <h2>Who can swing a driver here</h2>
+                <p>Rule of thumb: a driver needs golfer height plus about 3.5 to 4 ft. With a 9.5 ft ceiling (measured at the lowest point), max golfer height is about 5&prime;10&Prime; to 6&prime;0&Prime; with a normal swing.</p>
+                <p>Taller players (up to 6&prime;6&Prime;) should test swing slowly, choke down, or use irons and hybrids.</p>
+                <p class="estimate">Estimate only. Tape an alignment stick to a driver and try the exact hitting spot before you buy.</p>
+            </aside>
+        </div>
+
+        <h2 class="section-title">Quick compare</h2>
+        <div class="compare" role="group" aria-label="Setup comparison">
+            <div class="compare-card">
+                <div class="name">Setup A</div>
+                <div class="compare-row"><span class="k">Price</span><span class="v">~$1,600</span></div>
+                <div class="compare-row"><span class="k">Yearly</span><span class="v">$0 required</span></div>
+                <div class="compare-row"><span class="k">Hands</span><span class="v">Righty only</span></div>
+                <div class="compare-row"><span class="k">Room fit</span><span class="v">Comfortable</span></div>
+                <div class="compare-row"><span class="k">Driver</span><span class="v">~5&prime;10&Prime;&ndash;6&prime;0&Prime; max</span></div>
+            </div>
+            <div class="compare-card">
+                <div class="name">Setup B</div>
+                <div class="compare-row"><span class="k">Price</span><span class="v">~$1,400&ndash;$1,450</span></div>
+                <div class="compare-row"><span class="k">Yearly</span><span class="v">$99.99</span></div>
+                <div class="compare-row"><span class="k">Hands</span><span class="v">Lefty + righty</span></div>
+                <div class="compare-row"><span class="k">Room fit</span><span class="v">Tight behind</span></div>
+                <div class="compare-row"><span class="k">Driver</span><span class="v">~5&prime;10&Prime;&ndash;6&prime;0&Prime; max</span></div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Choose a setup</h2>
+        <div class="setups">
+            <article class="setup">
+                <div class="setup-render">
+                    <img src="render_a.jpg" alt="Concept rendering of Setup A with Square Golf HE in the unfinished basement bay">
+                    <span class="render-badge">Concept rendering, not exact</span>
+                </div>
+                <div class="setup-body">
+                    <div>
+                        <h3 class="setup-title">Setup A</h3>
+                        <p class="setup-sub">Righty only, Square Golf HE</p>
+                    </div>
+                    <div class="price-block">
+                        <div class="price-big">~$1,600</div>
+                        <p class="price-soft">Software included with Square; optional GSPro $250/yr</p>
+                    </div>
+                    <div class="pc">
+                        <div class="pros">
+                            <h4>Pros</h4>
+                            <ul>
+                                <li>Fits the 14 ft depth comfortably</li>
+                                <li>No required subscription</li>
+                                <li>Strong club data</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>Cons</h4>
+                            <ul>
+                                <li>Must be moved for a lefty</li>
+                                <li>Pricier monitor</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="parts">
+                        <li><a href="https://squaregolf.com/pages/shop">Square Golf HE</a><span class="amt">$699</span></li>
+                        <li><a href="https://www.amazon.com/GoSports-Range-Cage-Practice-Hitting/dp/B0CQPMLDTS">GoSports Range Cage 10&times;8 with screen</a><span class="amt">$299.99</span></li>
+                        <li><a href="https://www.amazon.com/Real-Feel-Golf-Mats-Commercial/dp/B0048GP25U">Country Club Elite 5&times;5 mat</a><span class="amt">$599</span></li>
+                        <li class="note">Alternative monitor: <a href="https://www.skytrakgolf.com/products/skytrak-launch-monitor">SkyTrak original</a> $695 (about $300/yr for course play). Optional <a href="https://gsprogolf.com/pricing">GSPro</a> $250/yr.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="setup">
+                <div class="setup-render">
+                    <img src="render_b.jpg" alt="Concept rendering of Setup B with Garmin R10 for lefty and righty golfers">
+                    <span class="render-badge">Concept rendering, not exact</span>
+                </div>
+                <div class="setup-body">
+                    <div>
+                        <h3 class="setup-title">Setup B</h3>
+                        <p class="setup-sub">Lefty + righty, Garmin R10</p>
+                    </div>
+                    <div class="price-block">
+                        <div class="price-big">~$1,400&ndash;$1,450</div>
+                        <p class="price-soft">Garmin Golf software $99.99/yr</p>
+                    </div>
+                    <div class="pc">
+                        <div class="pros">
+                            <h4>Pros</h4>
+                            <ul>
+                                <li>Works for lefties and righties without moving</li>
+                                <li>Cheapest build</li>
+                                <li>43k+ courses for $99.99/yr</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>Cons</h4>
+                            <ul>
+                                <li>Needs 6&ndash;8 ft behind the ball, so it is tight in this room</li>
+                                <li>Yearly subscription</li>
+                                <li>Spin is less precise indoors</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="parts">
+                        <li><a href="https://www.pgatoursuperstore.com/approach-r10-portable-launch-monitor/1136623.html">Garmin Approach R10</a><span class="amt">$499.99</span></li>
+                        <li><a href="https://www.amazon.com/GoSports-Range-Cage-Practice-Hitting/dp/B0CQPMLDTS">GoSports Range Cage 10&times;8 with screen</a><span class="amt">$299.99</span></li>
+                        <li><a href="https://www.amazon.com/Real-Feel-Golf-Mats-Commercial/dp/B0048GP25U">Country Club Elite 5&times;5 mat</a><span class="amt">$599</span></li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+
+        <h2 class="section-title">To-scale layout</h2>
+        <figure class="layout-block">
+            <a class="layout-link" href="golf_sim_layout.png" target="_blank" rel="noopener" title="Open full-size layout">
+                <img src="golf_sim_layout.png" alt="Top-down scaled layout comparing Setup A righty-only and Setup B lefty-and-righty placements in a 12 by 14 foot room">
+            </a>
+            <figcaption>
+                <strong>Panel A (righty only):</strong> Square Golf HE beside the ball, tee about 9 ft from the screen, about 5 ft free behind the golfer.
+                <br><br>
+                <strong>Panel B (lefty and righty):</strong> Centered mat, tee about 8 ft from the screen, Garmin R10 about 6 ft behind the ball. This layout is tight against the front wall.
+                <span class="layout-hint">Tap or click the diagram to open full size.</span>
+            </figcaption>
+        </figure>
+
+        <h2 class="section-title">Budget mat swap</h2>
+        <p class="simple">Swap the Country Club Elite for a <a href="https://www.amazon.com/Golfguru-Practice-Artificial-Training-Simulators/dp/B0D21X72GS">Golfguru 5&times;5 mat</a> at $159.99 to free up budget for a better display later.</p>
+
+        <h2 class="section-title">Display</h2>
+        <p class="simple">Use a tablet or cast to a TV for now. A short-throw projector like the BenQ TH671ST (about $850&ndash;$950 new) fits the room but is a later upgrade.</p>
+
+        <h2 class="section-title">Room prep checklist</h2>
+        <ul class="checklist">
+            <li>Remove the lumber rack and clear the back wall for the screen</li>
+            <li>Pad the drain pipe in the back-right corner, or keep it outside the cage</li>
+            <li>Relocate the hanging cord on the left wall</li>
+            <li>Cover the ceiling above the hitting area with netting, plywood, or drywall</li>
+            <li>Tape out tee and mat spots and take slow driver test swings (tall players up to 6&prime;6&Prime; may be limited to irons at 9.5 ft)</li>
+        </ul>
+
+        <footer>Prices checked Nov 9, 2026.</footer>
+    </main>
+</body>
+</html>
